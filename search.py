@@ -32,7 +32,7 @@ if __name__ == "__main__":
     CSE_ID = os.getenv("CSE_ID")
 
     search_engine = GoogleSearchEngine(api_key=API_KEY, cse_id=CSE_ID)
-    results = search_engine.search(" fbref", num_results=10)
+    results = search_engine.search("coppa italia 2022-23 stats fbref", num_results=10)
     print(type(results))
     for idx, link in enumerate(results, 1):
         print(f"{idx}. {link}")

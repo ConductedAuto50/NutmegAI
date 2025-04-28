@@ -111,9 +111,54 @@ The user query is: {query}
             config=generate_content_config,
         ).text
         return output
+    
+    def summaries_required(self, query):
+        prompt = f"""
+The current date is {dt.datetime.now().strftime('%Y-%m-%d')}.
+You have these files available with you. You need to answer this query:{query}. 
+Summary of a match is defined as textual details about the events of the match, and not simply its scoreline.
+If you require more detailed information regarding the matches such as its summary or for more detailed reviews, you can request it by outputting a list in the following format:
+Here by summary we want a detailed analysis of the whole match and what all factors contributed to them as well which cannot be inferred from stats.
+['team1 vs team2 dd mmm, yyyy', 'team1 vs team3 dd mmm, yyyy']
+If no extra information is required, output an empty list.
+give reasoning and then the list.
+"""
+        output_dir = "outputs"
+        model = "gemini-2.5-flash-preview-04-17"
+        files = []
+        for filename in os.listdir(output_dir):
+            file_path = os.path.join(output_dir, filename)
+            if os.path.isfile(file_path):
+                files.append(self.client.files.upload(file=file_path))
+        contents = [
+            types.Content(
+                role="user",
+                parts=[
+                    *[
+                        types.Part.from_uri(
+                            file_uri=f.uri,
+                            mime_type=f.mime_type,
+                        ) for f in files
+                    ],
+                    types.Part.from_text(text=prompt),
+                ],
+            ),
+        ]
+        generate_content_config = types.GenerateContentConfig(
+            temperature=1,
+            response_mime_type="text/plain",
+        )
+        output=self.client.models.generate_content(
+            model=model,
+            contents=contents,
+            config=generate_content_config,
+        ).text
+        return eval("["+output.split("[")[1].split("]")[0]+"]")
 
 
 
 if __name__ == "__main__":
     llm = LLMCalls()
-    source=llm.query_resolver()
+    source=llm.summaries_required("give summaries of real madrid's matches against barca")
+    print(source)
+    print(type(source))

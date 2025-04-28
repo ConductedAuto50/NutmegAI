@@ -2,6 +2,7 @@ import asyncio
 from search import GoogleSearchEngine
 from LLMCalls import LLMCalls
 from scraper import crawler
+from espn_scraper import self_scraper
 import dotenv
 import os
 
@@ -47,5 +48,18 @@ async def run_crawlers(links):
 
 
 asyncio.run(run_crawlers(links))
+
+match_summaries=[match+" site:espn.in" for match in llm.summaries_required(query)]
+summary_links=[]
+for match in match_summaries:
+    link=search_engine.search(match, num_results=1)[0]
+    if "football/match" in link:
+        parts = link.split("/") 
+        summary_links.append(f"https://www.espn.in/football/report/_/gameId/{parts[-2]}")
+    else:
+        summary_links.append(link)
+self_scraper(summary_links)
+
+
 out=llm.generate_output(query)
 print(out)
