@@ -86,6 +86,7 @@ You are an football analyst that has to answer the user query based on the data 
 The conversation history till now has also been provided in conversation.txt.
 Do not reveal any information about your data source/website.
 Do not use phrases such as "Based on the data I have" or "Based on the given information" or "Looking at the available statistics". The end user should not know that you are looking at the given webpage.
+Give detailed answers whenever possible/required.
 The user query is: {query}
 """
         output_dir = "outputs"
@@ -132,6 +133,7 @@ Here by summary we want a detailed analysis of the whole match and what all fact
 The current conversation history till now has also been provided in conversation.txt. Decide accordingly if any specific match summaries are required.
 The summaries that are currently available are: {current_summaries}
 You can ask for summaries of matches that are not in the above list.
+Never give more than 10 summaries at a time.
 If no extra information is required, output an empty list.
 give reasoning and then the list.
 """
@@ -158,7 +160,7 @@ give reasoning and then the list.
             ),
         ]
         generate_content_config = types.GenerateContentConfig(
-            temperature=1.6,
+            temperature=1,
             response_mime_type="text/plain",
         )
         output=self.client.models.generate_content(
