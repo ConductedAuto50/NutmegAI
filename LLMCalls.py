@@ -16,7 +16,10 @@ class LLMCalls:
 
 
     def query_resolver(self,query):
+        files=[]
+        files.append(self.client.files.upload(file="conversation.txt"))
 
+        self.client.files.upload(file="conversation.txt")
         prompt = f"""
 The current date is {dt.datetime.now().strftime('%Y-%m-%d')}.
 You are an agent that has to describe which pages to get data from depending on the user query. The following are the 4 types of pages available:
@@ -45,7 +48,7 @@ Reason: You need to know which seasons mbappe played for madrid from the players
 Query: "Against which team did barcelona win the most matches in the last 4 UCL seasons?"
 Output: {{"Players":[],"Team_overall":[],"Team_season":["Barcelona 2021-22", "Barcelona 2022-23", "Barcelona 2023-24", "Barcelona 2024-25"],"Competition_season":[]}}
 Reason: Matchwise data is available in the season wise pages, so you need all 4 season pages for barcelona.
-
+The current conversation history till now has also been provided in conversation.txt. Decide accordingly if any specific pages are required with specific focus on the latest user query.
 Give the reasoning first, and end your answer with the dictionary.
 The query you need to respond to is: {query}
 """
@@ -54,6 +57,10 @@ The query you need to respond to is: {query}
             types.Content(
                 role="user",
                 parts=[
+                    types.Part.from_uri(
+                        file_uri=files[0].uri,
+                        mime_type=files[0].mime_type,
+                        ) ,
                     types.Part.from_text(text=prompt),
                 ],
             ),
@@ -76,6 +83,7 @@ The query you need to respond to is: {query}
         prompt = f"""
 The current date is {dt.datetime.now().strftime('%Y-%m-%d')}.
 You are an football analyst that has to answer the user query based on the data available in the files.
+The conversation history till now has also been provided in conversation.txt.
 Do not reveal any information about your data source/website.
 Do not use phrases such as "Based on the data I have" or "Based on the given information" or "Looking at the available statistics". The end user should not know that you are looking at the given webpage.
 The user query is: {query}
@@ -87,6 +95,7 @@ The user query is: {query}
             file_path = os.path.join(output_dir, filename)
             if os.path.isfile(file_path):
                 files.append(self.client.files.upload(file=file_path))
+        files.append(self.client.files.upload(file="conversation.txt"))
         contents = [
             types.Content(
                 role="user",
@@ -112,7 +121,7 @@ The user query is: {query}
         ).text
         return output
     
-    def summaries_required(self, query):
+    def summaries_required(self, query, current_summaries):
         prompt = f"""
 The current date is {dt.datetime.now().strftime('%Y-%m-%d')}.
 You have these files available with you. You need to answer this query:{query}. 
@@ -120,6 +129,9 @@ Summary of a match is defined as textual details about the events of the match, 
 If you require more detailed information regarding the matches such as its summary or for more detailed reviews, you can request it by outputting a list in the following format:
 Here by summary we want a detailed analysis of the whole match and what all factors contributed to them as well which cannot be inferred from stats.
 ['team1 vs team2 dd mmm, yyyy', 'team1 vs team3 dd mmm, yyyy']
+The current conversation history till now has also been provided in conversation.txt. Decide accordingly if any specific match summaries are required.
+The summaries that are currently available are: {current_summaries}
+You can ask for summaries of matches that are not in the above list.
 If no extra information is required, output an empty list.
 give reasoning and then the list.
 """
@@ -130,6 +142,7 @@ give reasoning and then the list.
             file_path = os.path.join(output_dir, filename)
             if os.path.isfile(file_path):
                 files.append(self.client.files.upload(file=file_path))
+        files.append(self.client.files.upload(file="conversation.txt"))
         contents = [
             types.Content(
                 role="user",
@@ -145,7 +158,7 @@ give reasoning and then the list.
             ),
         ]
         generate_content_config = types.GenerateContentConfig(
-            temperature=1,
+            temperature=1.6,
             response_mime_type="text/plain",
         )
         output=self.client.models.generate_content(
