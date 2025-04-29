@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FutboLM Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="brand">
+                <i class="fas fa-futbol"></i>
+                <h1>FutboLM Chat</h1>
+            </div>
+        </div>
+        <div id="chat-box" class="chat-box">
+            <div class="welcome-message">
+                <div class="welcome-icon">
+                    <i class="fas fa-futbol"></i>
+                </div>
+                <h2>Welcome to FutboLM</h2>
+                <p>Ask me anything about football, players, teams, or upcoming matches!</p>
+            </div>
+        </div>
+        <form id="chat-form" class="input-container">
+            <input 
+                type="text" 
+                id="message-input" 
+                autocomplete="off" 
+                placeholder="Ask me about football..." 
+                required 
+            />
+            <button type="submit" class="send-button" aria-label="Send message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById('chat-form');
+        const input = document.getElementById('message-input');
+        const chatBox = document.getElementById('chat-box');
+
+        function appendMessage(sender, text) {
+            const msg = document.createElement('div');
+            msg.classList.add('message', sender);
+            
+            if (sender === 'bot') {
+                // Create wrapper for bot messages to apply the typing animation
+                const textWrapper = document.createElement('div');
+                textWrapper.classList.add('message-text');
+                textWrapper.textContent = text;
+                msg.appendChild(textWrapper);
+            } else {
+                msg.textContent = text;
+            }
+            
+            chatBox.appendChild(msg);
+            chatBox.scrollTop = chatBox.scrollHeight;
+            
+            // Add appear animation class
+            setTimeout(() => {
+                msg.classList.add('visible');
+            }, 10);
+        }
+
+        function showLoadingIndicator() {
+            const loadingMsg = document.createElement('div');
+            loadingMsg.classList.add('message', 'bot', 'loading-message');
+            loadingMsg.id = 'loading-indicator';
+            
+            const dots = document.createElement('div');
+            dots.classList.add('typing-indicator');
+            for (let i = 0; i < 3; i++) {
+                const dot = document.createElement('span');
+                dots.appendChild(dot);
+            }
+            
+            loadingMsg.appendChild(dots);
+            chatBox.appendChild(loadingMsg);
+            chatBox.scrollTop = chatBox.scrollHeight;
+            
+            // Add appear animation class
+            setTimeout(() => {
+                loadingMsg.classList.add('visible');
+            }, 10);
+        }
+
+        function removeLoadingIndicator() {
+            const loadingIndicator = document.getElementById('loading-indicator');
+            if (loadingIndicator) {
+                loadingIndicator.classList.remove('visible');
+                setTimeout(() => {
+                    loadingIndicator.remove();
+                }, 300);
+            }
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const message = input.value.trim();
+            if (!message) return;
+            
+            appendMessage('user', message);
+            input.value = '';
+            
+            // Show loading indicator
+            showLoadingIndicator();
+            
+            try {
+                const res = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message })
+                });
+                
+                // Remove loading indicator
+                removeLoadingIndicator();
+                
+                const data = await res.json();
+                appendMessage('bot', data.response);
+                
+                if (data.graph_url) {
+                    const imgMsg = document.createElement('div');
+                    imgMsg.classList.add('message', 'bot', 'image-message');
+                    const img = document.createElement('img');
+                    img.src = data.graph_url;
+                    img.alt = 'Graph';
+                    img.onload = () => {
+                        imgMsg.classList.add('visible');
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                    };
+                    imgMsg.appendChild(img);
+                    chatBox.appendChild(imgMsg);
+                    
+                    // Add appear animation class
+                    setTimeout(() => {
+                        imgMsg.classList.add('visible');
+                    }, 10);
+                }
+            } catch (error) {
+                // Remove loading indicator
+                removeLoadingIndicator();
+                appendMessage('bot', 'Sorry, there was an error processing your request. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

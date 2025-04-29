@@ -1,12 +1,42 @@
-User query 1: compare 2007-08 ronaldo with 2011-12 messi
-LLM output 1: Comparing Cristiano Ronaldo's 2007-08 season with Lionel Messi's 2011-12 season across all competitions reveals two exceptionally dominant attacking performances.
+User query 1: ronaldo goals per season graph
+LLM output 1: Here is a bar graph showing Cristiano Ronaldo's goals per season across all competitions.
 
-In terms of raw output, Lionel Messi's 2011-12 season saw him score significantly more goals and provide more assists than Cristiano Ronaldo in 2007-08. Messi scored 73 goals and provided 31 assists, totaling 104 goal involvements in 60 appearances (58.2 per 90 minutes). This included 10 penalties from 13 attempts. His scoring rate was 1.25 goals per 90 minutes, and his combined goal and assist rate was a remarkable 1.79 per 90 minutes.
+*****
+import matplotlib.pyplot as plt
+import numpy as np
 
-Cristiano Ronaldo's 2007-08 season was also hugely impressive, featuring 42 goals and 8 assists, resulting in 50 goal involvements in 45 appearances (41.8 per 90 minutes). He scored 8 penalties from 9 attempts. His scoring rate was 1.00 goals per 90 minutes, and his combined goal and assist rate was 1.20 per 90 minutes.
+seasons = ['2002-2003', '2003-2004', '2004-2005', '2005-2006', '2006-2007', '2007-2008', '2008-2009', '2009-2010', '2010-2011', '2011-2012', '2012-2013', '2013-2014', '2014-2015', '2015-2016', '2016-2017', '2017-2018', '2018-2019', '2019-2020', '2020-2021', '2021-2022', '2022-2023', '2023-2024', '2024-2025']
+goals = [3, 4, 5, 9, 20, 39, 22, 33, 46, 56, 46, 48, 61, 51, 38, 42, 28, 37, 36, 24, 17, 35, 23]
 
-Looking at shooting volume and efficiency, Messi took more shots per 90 minutes (5.21) compared to Ronaldo (5.79), but had a slightly higher shot on target percentage (48.5% vs 45.5%). Messi was also more efficient with his shots, scoring on 24% of his shots (0.24 G/Sh) and 50% of his shots on target (0.50 G/SoT). Ronaldo scored on 17% of his shots (0.17 G/Sh) and 38% of his shots on target (0.38 G/SoT).
+x = np.arange(len(seasons))
 
-In terms of playing time, Messi played more total minutes (5240 vs 3762) and appeared in more matches (60 vs 45), reflecting his full participation in the 2011-12 season compared to Ronaldo's appearances in 2007-08. Both players started the vast majority of the matches they played.
+plt.figure(figsize=(15, 7))
+plt.bar(x, goals)
+plt.xlabel('Season')
+plt.ylabel('Goals')
+plt.title('Cristiano Ronaldo Goals Per Season (All Competitions)')
+plt.xticks(x, seasons, rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig('graph.png')
+*****
+User query 2: messi last 5 seasons graph for goals
+LLM output 2: Here is a bar graph showing Lionel Messi's total goals for his last 5 seasons across all competitions.
 
-While the provided data for expected goals (xG) is only available for Messi's 2011-12 season (63.4 xG, 53.8 npxG, 31.0 xAG), the actual goal and assist numbers demonstrate Messi's extraordinary attacking production in 2011-12, surpassing Ronaldo's excellent 2007-08 season in most key metrics.
+*****
+import matplotlib.pyplot as plt
+import numpy as np
+
+seasons = ['2021-22', '2022-23', '2023', '2024', '2025*']
+goals = [53, 43, 6, 39, 12]
+
+x = np.arange(len(seasons))
+
+plt.figure(figsize=(10, 6))
+plt.bar(x, goals)
+plt.xlabel('Season')
+plt.ylabel('Goals')
+plt.title('Lionel Messi Total Goals Per Season (All Competitions)')
+plt.xticks(x, seasons)
+plt.tight_layout()
+plt.savefig('graph.png')
+*****
