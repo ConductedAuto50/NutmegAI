@@ -38,6 +38,23 @@ def index():
 def serve_graph():
     return send_from_directory('.', 'graph.png')
 
+# New route to serve football facts
+@app.route('/get_facts')
+def get_facts():
+    """Route to get football facts from facts.txt"""
+    try:
+        # Path to facts.txt in the static folder
+        facts_path = os.path.join(app.static_folder, 'facts.txt')
+        
+        # Read facts from file
+        with open(facts_path, 'r', encoding='utf-8') as file:
+            facts = [line.strip() for line in file.readlines() if line.strip()]
+        
+        return jsonify({'facts': facts})
+    except Exception as e:
+        app.logger.error(f"Error reading facts: {str(e)}")
+        return jsonify({'facts': ["Did you know? Football is the most popular sport in the world!"]})
+
 def run_async(coroutine):
     """Helper function to run async code in sync context"""
     loop = asyncio.get_event_loop()
@@ -147,7 +164,7 @@ def chat():
                 print("ESPN scraping completed.")
     
     # Generate response
-    time.sleep(20)
+    time.sleep(60)
     if 'Graph_to_be_drawn' in searches_dict and searches_dict['Graph_to_be_drawn'] == [True]:
         out = llm.generate_graph_content(query=query)
         if "*****" in out:  # Make sure the separator exists

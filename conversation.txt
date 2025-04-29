@@ -1,47 +1,47 @@
-User query 1: mbappe vs vinicus goals over the years graph
-LLM output 1: Here is a graph comparing the goals scored by Kylian Mbappé and Vinícius Júnior in all competitions over the years.
-
-*****
+User query 1: give me a graph of messi vs ronaldo over the years goals
+LLM output 1: *****
 {
-"type": "bar",
+"type": "line",
 "data": {
-    "labels": ["2015-16", "2016-17", "2017-18", "2018-19", "2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25"],
-    "datasets": [
-    {
-        "label": "Kylian Mbappé",
-        "data": [1, 24, 21, 39, 30, 42, 39, 41, 44, 33],
-        "backgroundColor": "#003366"
-    },
-    {
-        "label": "Vinícius Júnior",
-        "data": [0, 0, 10, 4, 5, 6, 22, 20, 24, 20],
-        "backgroundColor": "#FFD700"
-    }
-    ]
+"labels": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+"datasets": [
+{
+"label": "Cristiano Ronaldo",
+"data": [3, 9, 14, 31, 51, 99, 121, 155, 201, 267, 313, 372, 433, 492, 533, 596, 627, 667, 721, 752, 771, 818, 847],
+"borderColor": "#0077B6",
+"fill": false
+},
+{
+"label": "Lionel Messi",
+"data": [0, 1, 7, 23, 41, 73, 115, 158, 232, 286, 339, 401, 446, 500, 556, 612, 644, 699, 723, 749, 776, 779],
+"borderColor": "#E34A27",
+"fill": false
+}
+]
 },
 "options": {
-    "responsive": true,
-    "plugins": {
-    "title": {
-        "display": true,
-        "text": "Kylian Mbappé vs Vinícius Júnior: Goals Per Season (All Competitions)"
-    }
-    },
-    "scales": {
-    "x": {
-        "title": {
-        "display": true,
-        "text": "Season"
-        }
-    },
-    "y": {
-        "title": {
-        "display": true,
-        "text": "Goals Scored"
-        },
-        "beginAtZero": true
-    }
-    }
+"responsive": true,
+"plugins": {
+"title": {
+"display": true,
+"text": "Cristiano Ronaldo vs Lionel Messi - Career Cumulative Goals Over the Years"
+}
+},
+"scales": {
+"x": {
+"title": {
+"display": true,
+"text": "Year"
+}
+}
+,
+"y": {
+"title": {
+"display": true,
+"text": "Cumulative Goals"
+}
+}
+}
 }
 }
 *****

@@ -169,7 +169,6 @@ Output_format:
 *****[]*****
 
 
-
 Note: Strictly follow the output format. You are an expert you must not fail at any cost in maintaining the output format.
 """
         output_dir = "outputs"
@@ -195,7 +194,7 @@ Note: Strictly follow the output format. You are an expert you must not fail at 
             ),
         ]
         generate_content_config = types.GenerateContentConfig(
-            temperature=1,
+            temperature=0.4,
             response_mime_type="text/plain",
         )
         output=self.client.models.generate_content(
@@ -260,6 +259,7 @@ Note: Strictly follow the output format. You are an expert you must not fail at 
     *****
 
     Do not use backtics or any other formatting. Only return as shown in the example for the data. Ensure the JSON is properly formatted with no syntax errors.
+    Note: Strictly follow the format of the outpur and do not use backticks or any other formatting.
     """
         output_dir = "outputs"
         model = "gemini-2.5-flash-preview-04-17"
@@ -292,8 +292,10 @@ Note: Strictly follow the output format. You are an expert you must not fail at 
             contents=contents,
             config=generate_content_config,
         ).text
+        print(output)
         return output
 
 if __name__ == "__main__":
     llm = LLMCalls()
     source=llm.generate_graph_content("give summaries of real madrid's matches against barca with a graph for the last 4 matches")
+    print(source)
