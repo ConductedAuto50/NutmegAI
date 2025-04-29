@@ -396,3 +396,78 @@
     --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.2);
     --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.3);
   }
+  /* Add these styles to your main.css file */
+
+/* Chart container styling */
+.chart-container {
+    position: relative;
+    padding: 16px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    margin: 16px 0;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    min-height: 300px;
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  
+  .chart-container.graph-loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .chart-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 400px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+  }
+  
+  .chart-container:hover {
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Chart tooltip enhancements */
+  .chartjs-tooltip {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 6px;
+    padding: 8px 12px;
+    box-shadow: var(--shadow-md);
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+  }
+  
+  /* Chart legend styling */
+  .chart-container .chartjs-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8px;
+    gap: 12px;
+  }
+  
+  .chart-container .chartjs-legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+  
+  .chart-container .chartjs-legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+  
+  /* Interactive elements */
+  .chart-container .chartjs-interactive:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }

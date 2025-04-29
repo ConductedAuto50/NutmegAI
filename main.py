@@ -8,6 +8,8 @@ from scraper import crawler
 from espn_scraper import self_scraper
 from grapher import create_graph
 import nest_asyncio
+import json
+import time
 
 # Apply nest_asyncio to allow nested event loops (needed for asyncio.run inside Flask)
 nest_asyncio.apply()
@@ -145,6 +147,7 @@ def chat():
                 print("ESPN scraping completed.")
     
     # Generate response
+    time.sleep(20)
     if 'Graph_to_be_drawn' in searches_dict and searches_dict['Graph_to_be_drawn'] == [True]:
         out = llm.generate_graph_content(query=query)
         if "*****" in out:  # Make sure the separator exists
@@ -153,10 +156,14 @@ def chat():
             with open("conversation.txt", "a") as f:
                 f.write(f"LLM output {i}: {out}\n")
             i += 1
-            create_graph(graph_data)
-            # Return JSON with text and graph URL
-            graph_url = url_for('static', filename='graph.png')
-            return jsonify(response=text_out, graph_url=graph_url)
+            
+            # Instead of creating a static image, return the chart data as JSON
+            try:
+                chart_config = json.loads(graph_data.strip())
+                return jsonify(response=text_out, chart_data=chart_config)
+            except json.JSONDecodeError:
+                # Fallback in case of invalid JSON
+                return jsonify(response=text_out + "\n\nSorry, there was an error generating the interactive chart.")
         else:
             # Handle case where separator is missing
             with open("conversation.txt", "a") as f:
@@ -169,6 +176,6 @@ def chat():
             f.write(f"LLM output {i}: {out}\n")
         i += 1
         return jsonify(response=out)
-
+    
 if __name__ == '__main__':
     app.run(debug=True)

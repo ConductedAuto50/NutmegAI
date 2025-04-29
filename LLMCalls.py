@@ -147,8 +147,8 @@ Query: "How did Arsenal manage to defeat Manchester City despite having lower po
 Reasoning:
 The query asks how Arsenal defeated Manchester City despite inferior stats. This cannot be answered from basic match statistics alone and requires tactical and contextual analysis — i.e., the summary. The match summary will reveal whether the win was due to defensive organization, a counter-attacking strategy, a red card incident, or any other factor not evident from stats.
 
-List:
-['Arsenal vs Manchester City 02 Feb, 2025']
+Output_format:
+*****['Arsenal vs Manchester City 02 Feb, 2025']*****
 
 Example 2:
 Query: "Compare Real Madrid's performances in El Clasico this season."
@@ -156,8 +156,21 @@ Query: "Compare Real Madrid's performances in El Clasico this season."
 Reasoning:
 A statistical comparison would be incomplete without understanding the tactical evolution, key absences, coaching changes, and match context in each El Clasico. These details come from match summaries. We need summaries for all El Clasico matches in the last two seasons (max 10).
 
-List:
-[Real Madrid vs Barcelona 26 Oct, 2024', 'Real Madrid vs Barcelona 12 Jan, 2025', 'Real Madrid vs Barcelona 26 Apr, 2025']
+Output_format:
+*****[Real Madrid vs Barcelona 26 Oct, 2024', 'Real Madrid vs Barcelona 12 Jan, 2025', 'Real Madrid vs Barcelona 26 Apr, 2025']*****
+
+Example 3:
+Query: "How many goals has messi scored in his career?"
+
+Reasoning:
+The query is straightforward and can be answered with basic statistics. No match summaries are needed.
+
+Output_format:
+*****[]*****
+
+
+
+Note: Strictly follow the output format. You are an expert you must not fail at any cost in maintaining the output format.
 """
         output_dir = "outputs"
         model = "gemini-2.5-flash-preview-04-17"
@@ -190,28 +203,64 @@ List:
             contents=contents,
             config=generate_content_config,
         ).text
-        return eval("["+output.split("[")[1].split("]")[0]+"]")
+        print(output)
+        return eval(output.split("*****")[1])
 
+    
     def generate_graph_content(self, query):
         prompt = f"""
-The current date is {dt.datetime.now().strftime('%Y-%m-%d')}.
-You are an football analyst that has to answer the user query based on the data available in the files.
-The conversation history till now has also been provided in conversation.txt.
-Do not reveal any information about your data source/website.
-Do not use phrases such as "Based on the data I have" or "Based on the given information" or "Looking at the available statistics". The end user should not know that you are looking at the given webpage.
-Give detailed answers whenever possible/required.
-The user query is: {query}
-Also enclosed in ***** give me the matplotlib python code for the graph to be drawn with no errors.
-Moreover the graph should be drawn based on the latest query only. If a graph was drawn for the previous query, do not include it in the current graph although you may take data if required from the previous conversation.
-Example:
-*****
-import matplotlib.pyplot as plt
-import numpy as np
-whatever code you need
-*****
-Do not use backtics or any other formatting. Only return as shown in the example for the code. Do not do plt.show().Moroever i want you to save this file as graph.png Do not use pandas.
+    The current date is {dt.datetime.now().strftime('%Y-%m-%d')}.
+    You are a football analyst that has to answer the user query based on the data available in the files.
+    The conversation history till now has also been provided in conversation.txt.
+    Do not reveal any information about your data source/website.
+    Do not use phrases such as "Based on the data I have" or "Based on the given information" or "Looking at the available statistics". The end user should not know that you are looking at the given webpage.
+    Give detailed answers whenever possible/required.
+    The user query is: {query}
 
-"""
+    Also enclosed in ***** return the chart data in a JSON format that can be used with Chart.js or Plotly.js.
+    Structure the data appropriately for the frontend visualization library with proper labels, datasets, and options.
+    For example, for a bar chart:
+
+    *****
+    {{
+    "type": "bar",
+    "data": {{
+        "labels": ["2025-04-20", "2024-10-27", "2024-01-14", "2023-04-05"],
+        "datasets": [
+        {{
+            "label": "Real Madrid",
+            "data": [2, 1, 4, 4],
+            "backgroundColor": "#00529F"
+        }},
+        {{
+            "label": "Barcelona",
+            "data": [1, 0, 1, 0],
+            "backgroundColor": "#C6001E"
+        }}
+        ]
+    }},
+    "options": {{
+        "responsive": true,
+        "plugins": {{
+        "title": {{
+            "display": true,
+            "text": "Goals Scored in Last 4 Real Madrid vs Barcelona Matches"
+        }}
+        }},
+        "scales": {{
+        "y": {{
+            "title": {{
+            "display": true,
+            "text": "Goals Scored"
+            }}
+        }}
+        }}
+    }}
+    }}
+    *****
+
+    Do not use backtics or any other formatting. Only return as shown in the example for the data. Ensure the JSON is properly formatted with no syntax errors.
+    """
         output_dir = "outputs"
         model = "gemini-2.5-flash-preview-04-17"
         files = []
@@ -245,9 +294,6 @@ Do not use backtics or any other formatting. Only return as shown in the example
         ).text
         return output
 
-
 if __name__ == "__main__":
     llm = LLMCalls()
     source=llm.generate_graph_content("give summaries of real madrid's matches against barca with a graph for the last 4 matches")
-    print(source)
-    print(type(source))

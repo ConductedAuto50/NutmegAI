@@ -7,6 +7,8 @@
     <title>FutboLM Chat</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Add Chart.js for interactive charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="chat-container">
@@ -42,6 +44,7 @@
         const form = document.getElementById('chat-form');
         const input = document.getElementById('message-input');
         const chatBox = document.getElementById('chat-box');
+        let chartInstances = [];
 
         function appendMessage(sender, text) {
             const msg = document.createElement('div');
@@ -64,6 +67,33 @@
             setTimeout(() => {
                 msg.classList.add('visible');
             }, 10);
+        }
+
+        function createInteractiveChart(chartData) {
+            const chartContainer = document.createElement('div');
+            chartContainer.classList.add('message', 'bot', 'chart-container');
+            
+            // Create canvas element for Chart.js
+            const canvas = document.createElement('canvas');
+            canvas.id = 'chart-' + Date.now();
+            chartContainer.appendChild(canvas);
+            
+            chatBox.appendChild(chartContainer);
+            
+            // Add appear animation class
+            setTimeout(() => {
+                chartContainer.classList.add('graph-loaded');
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 10);
+            
+            // Create chart using Chart.js
+            const ctx = canvas.getContext('2d');
+            const chart = new Chart(ctx, chartData);
+            
+            // Store chart instance in case we need to destroy it later
+            chartInstances.push(chart);
+            
+            return chart;
         }
 
         function showLoadingIndicator() {
@@ -122,23 +152,9 @@
                 const data = await res.json();
                 appendMessage('bot', data.response);
                 
-                if (data.graph_url) {
-                    const imgMsg = document.createElement('div');
-                    imgMsg.classList.add('message', 'bot', 'image-message');
-                    const img = document.createElement('img');
-                    img.src = data.graph_url;
-                    img.alt = 'Graph';
-                    img.onload = () => {
-                        imgMsg.classList.add('visible');
-                        chatBox.scrollTop = chatBox.scrollHeight;
-                    };
-                    imgMsg.appendChild(img);
-                    chatBox.appendChild(imgMsg);
-                    
-                    // Add appear animation class
-                    setTimeout(() => {
-                        imgMsg.classList.add('visible');
-                    }, 10);
+                // Handle chart data if available
+                if (data.chart_data) {
+                    createInteractiveChart(data.chart_data);
                 }
             } catch (error) {
                 // Remove loading indicator
