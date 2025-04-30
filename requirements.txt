@@ -1,0 +1,9 @@
+flask
+python-dotenv
+requests
+crawl4ai
+selenium
+matplotlib
+numpy
+google-genai
+nest_asyncio
