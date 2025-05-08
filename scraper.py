@@ -22,10 +22,10 @@ async def crawler(link):
         result = await crawler.arun(link, config=config)
 
         if result.success:
-            with open(f"outputs/{''.join(link.split("/"))}.txt", "w") as file:
+            with open(f"outputs/{''.join(link.split("/"))}.txt", "w", encoding='utf-8') as file:
                 file.write(result.markdown.raw_markdown)
         else:
-            with open(f"outputs/{''.join(link.split("/"))}.txt", "w") as file:
+            with open(f"outputs/{''.join(link.split("/"))}.txt", "w", encoding='utf-8') as file:
                 file.write("Crawl failed: " + result.error_message)
 
 # if __name__ == "__main__":

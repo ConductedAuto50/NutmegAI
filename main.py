@@ -4,7 +4,7 @@ import dotenv
 from flask import Flask, render_template, request, jsonify, send_from_directory, url_for
 from search import GoogleSearchEngine
 from LLMCalls import LLMCalls
-from scraper import crawler
+from scraper import crawler 
 from espn_scraper import self_scraper
 from grapher import create_graph
 import nest_asyncio
@@ -33,6 +33,10 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/chat')
+def chat_page():
+    return render_template('chat.html')
 
 @app.route('/graph.png')
 def serve_graph():
@@ -66,8 +70,8 @@ async def run_crawlers(links):
         await asyncio.gather(*[crawler(l) for l in links])
         print("Crawling completed.")
 
-@app.route('/chat', methods=['POST'])
-def chat():
+@app.route('/chat_api', methods=['POST'])
+def chat_api():
     global i, visited_links, current_summaries
     data = request.get_json()
     query = data.get('message', '')

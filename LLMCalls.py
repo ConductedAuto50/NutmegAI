@@ -11,7 +11,7 @@ class LLMCalls:
         self.client = genai.Client(
             vertexai=False,
             project="",
-            location="",
+            location=""
         )
 
 
@@ -298,4 +298,4 @@ Note: Strictly follow the output format. You are an expert you must not fail at 
 if __name__ == "__main__":
     llm = LLMCalls()
     source=llm.generate_graph_content("give summaries of real madrid's matches against barca with a graph for the last 4 matches")
-    print(source)
+    print(source)   
