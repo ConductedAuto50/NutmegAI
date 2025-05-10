@@ -22,11 +22,25 @@ async def crawler(link):
         result = await crawler.arun(link, config=config)
 
         if result.success:
-            with open(f"outputs/{''.join(link.split("/"))}.txt", "w", encoding='utf-8') as file:
-                file.write(result.markdown.raw_markdown)
+            try:
+                with open(f"outputs/{''.join(link.split("/"))}.txt", "w", encoding='utf-8') as file:
+                    file.write(result.markdown)
+            except Exception as e:
+                print(f"Error creating file for link {link}: {e}")
+                # Create a safe filename as fallback
+                safe_filename = "output_" + str(hash(link))
+                with open(f"outputs/{safe_filename}.txt", "w", encoding='utf-8') as file:
+                    file.write(result.markdown)
         else:
-            with open(f"outputs/{''.join(link.split("/"))}.txt", "w", encoding='utf-8') as file:
-                file.write("Crawl failed: " + result.error_message)
+            try:
+                with open(f"outputs/{''.join(link.split("/"))}.txt", "w", encoding='utf-8') as file:
+                    file.write("Crawl failed: " + result.error_message)
+            except Exception as e:
+                print(f"Error creating error file for link {link}: {e}")
+                # Create a safe filename as fallback
+                safe_filename = "error_" + str(hash(link))
+                with open(f"outputs/{safe_filename}.txt", "w", encoding='utf-8') as file:
+                    file.write("Crawl failed: " + result.error_message)
 
 # if __name__ == "__main__":
 #     asyncio.run(main())

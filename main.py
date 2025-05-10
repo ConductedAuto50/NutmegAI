@@ -106,6 +106,9 @@ def chat_api():
         for comp in searches_dict['Competition_season']:
             searches.append(comp + " site:fbref.com/en/comps")
     
+    if 'General_query' in searches_dict:
+        for genquery in searches_dict['General_query']:
+            searches.append(genquery)
     # Perform Google searches if we have search queries
     links = []
     if searches:
@@ -119,13 +122,17 @@ def chat_api():
         # Refine fbref links
         temp_links = []
         for link in links:
-            if "en/players" in link:
-                parts = link.split("/")
-                if len(parts) > 6:  # Make sure the parts exists before accessing
-                    temp_links.append(f"https://fbref.com/en/players/{parts[5]}/all_comps/{parts[6]}-Stats---All-Competitions")
-                    temp_links.append(f"https://fbref.com/en/players/{parts[5]}/nat_tm/{parts[6]}-National-Team-Stats")
-            else:
-                temp_links.append(link)
+            try:
+                if "en/players" in link and "fbref.com" in link:
+                    parts = link.split("/")
+                    if len(parts) > 6:  # Make sure the parts exists before accessing
+                        temp_links.append(f"https://fbref.com/en/players/{parts[5]}/all_comps/{parts[6]}-Stats---All-Competitions")
+                        temp_links.append(f"https://fbref.com/en/players/{parts[5]}/nat_tm/{parts[6]}-National-Team-Stats")
+                else:
+                    temp_links.append(link)
+            except Exception as e:
+                print(f"Error processing link {link}: {e}")
+                temp_links.append(link)  # Add the original link as fallback
         
         # Filter visited
         new_links = [l for l in temp_links if l not in visited_links]
@@ -152,45 +159,107 @@ def chat_api():
                 search_results = search_engine.search(mq, num_results=1)
                 if search_results:  # Check if results were returned
                     link = search_results[0]
-                    if "football/match" in link:
-                        parts = link.split("/")
-                        if len(parts) > 2:  # Make sure there are enough parts
-                            summary_links.append(f"https://www.espn.in/football/report/_/gameId/{parts[-2]}")
-                    elif "football/preview" in link:
-                        parts = link.split("/")
-                        if parts:  # Make sure there's at least one part
-                            summary_links.append(f"https://www.espn.in/football/report/_/gameId/{parts[-1]}")
-                    else:
-                        summary_links.append(link)
+                    try:
+                        if "football/match" in link:
+                            parts = link.split("/")
+                            if len(parts) > 2:  # Make sure there are enough parts
+                                summary_links.append(f"https://www.espn.in/football/report/_/gameId/{parts[-2]}")
+                        elif "football/preview" in link:
+                            parts = link.split("/")
+                            if parts:  # Make sure there's at least one part
+                                summary_links.append(f"https://www.espn.in/football/report/_/gameId/{parts[-1]}")
+                        else:
+                            summary_links.append(link)
+                    except Exception as e:
+                        print(f"Error processing summary link {link}: {e}")
+                        summary_links.append(link)  # Add the original link as fallback
             
             if summary_links:
                 self_scraper(summary_links)
                 print("ESPN scraping completed.")
     
     # Generate response
-    time.sleep(60)
     if 'Graph_to_be_drawn' in searches_dict and searches_dict['Graph_to_be_drawn'] == [True]:
-        out = llm.generate_graph_content(query=query)
-        if "*****" in out:  # Make sure the separator exists
-            text_out = out.split("*****")[0]
-            graph_data = out.split("*****")[1]
-            with open("conversation.txt", "a") as f:
-                f.write(f"LLM output {i}: {out}\n")
-            i += 1
-            
-            # Instead of creating a static image, return the chart data as JSON
+        try:
+            out = llm.generate_graph_content(query=query)
+            if "*****" in out:  # Make sure the separator exists
+                try:
+                    # Extract the parts of the response
+                    parts = out.split("*****")
+                    
+                    # The text is in the first part
+                    text_out = parts[0].strip()
+                    
+                    # The graph data is in the second part if available
+                    graph_data = parts[1].strip() if len(parts) > 1 else None
+                    
+                    with open("conversation.txt", "a") as f:
+                        f.write(f"LLM output {i}: {out}\n")
+                    i += 1
+                    
+                    # Print for debugging
+                    print("Text output:", text_out)
+                    
+                    # Instead of creating a static image, return the chart data as JSON
+                    if graph_data:
+                        try:
+                            chart_config = json.loads(graph_data)
+                            return jsonify(response=text_out, chart_data=chart_config)
+                        except json.JSONDecodeError as e:
+                            print(f"JSON decode error: {e}")
+                            # Fallback in case of invalid JSON
+                            return jsonify(response=text_out + "\n\nSorry, there was an error generating the interactive chart.")
+                    else:
+                        return jsonify(response=text_out)
+                except Exception as e:
+                    print(f"Error parsing LLM output for graph content: {e}")
+                    print("Retrying from the beginning...")
+                    # Decrement i since we're retrying and will increment it again
+                    i -= 1
+                    return chat_api()  # Restart the entire process
+            else:
+                # Handle case where separator is missing
+                with open("conversation.txt", "a") as f:
+                    f.write(f"LLM output {i}: {out}\n")
+                i += 1
+                return jsonify(response=out)
+        except Exception as e:
+            print(f"Error generating interactive graph: {e}")
+            print("Retrying graph content generation...")
+            # Try to regenerate the graph content
             try:
-                chart_config = json.loads(graph_data.strip())
-                return jsonify(response=text_out, chart_data=chart_config)
-            except json.JSONDecodeError:
-                # Fallback in case of invalid JSON
-                return jsonify(response=text_out + "\n\nSorry, there was an error generating the interactive chart.")
-        else:
-            # Handle case where separator is missing
-            with open("conversation.txt", "a") as f:
-                f.write(f"LLM output {i}: {out}\n")
-            i += 1
-            return jsonify(response=out)
+                out = llm.generate_graph_content(query=query)
+                # Process the output as before
+                if "*****" in out:
+                    parts = out.split("*****")
+                    text_out = parts[0].strip()
+                    graph_data = parts[1].strip() if len(parts) > 1 else None
+                    
+                    with open("conversation.txt", "a") as f:
+                        f.write(f"LLM output {i}: {out}\n")
+                    i += 1
+                    
+                    if graph_data:
+                        try:
+                            chart_config = json.loads(graph_data)
+                            return jsonify(response=text_out, chart_data=chart_config)
+                        except json.JSONDecodeError as e:
+                            return jsonify(response=text_out + "\n\nSorry, there was an error generating the interactive chart.")
+                    else:
+                        return jsonify(response=text_out)
+                else:
+                    with open("conversation.txt", "a") as f:
+                        f.write(f"LLM output {i}: {out}\n")
+                    i += 1
+                    return jsonify(response=out)
+            except Exception as e:
+                print(f"Error on retry for graph generation: {e}")
+                # If retry also fails, fall back to regular output
+                out = llm.generate_output(query)
+                with open("conversation.txt", "a") as f:
+                    f.write(f"LLM output {i}: {out}\n")
+                i += 1
+                return jsonify(response=out + "\n\nSorry, there was an error generating the interactive chart.")
     else:
         out = llm.generate_output(query)
         with open("conversation.txt", "a") as f:

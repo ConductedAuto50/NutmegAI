@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FutboLM - Chat</title>
+    <title>NutmegAI - Chat</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -102,19 +102,14 @@
             <div class="container chat-header-content">
                 <a href="/" class="chat-logo">
                     <i class="fas fa-futbol"></i>
-                    <span>FutboLM</span>
+                    <span>NutmegAI</span>
                 </a>
-                <a href="/" class="back-to-home">
-                    <i class="fas fa-arrow-left"></i> Back to Home
-                </a>
+
             </div>
         </header>
 
         <div class="chat-container">
-            <div class="chat-info">
-                <h1>Football Assistant</h1>
-                <p>Ask me anything about football - players, teams, matches, competitions, and more.</p>
-            </div>
+
             
             <div class="chat-interface">
                 <div id="chat-box" class="chat-box">
@@ -122,14 +117,9 @@
                         <div class="welcome-icon">
                             <i class="fas fa-futbol"></i>
                         </div>
-                        <h2>Welcome to FutboLM Assistant</h2>
-                        <p>Your AI-powered football assistant. Ask me about:</p>
-                        <div class="quick-actions">
-                            <button class="quick-action">Player Stats</button>
-                            <button class="quick-action">Team Analysis</button>
-                            <button class="quick-action">Match Predictions</button>
-                            <button class="quick-action">League Standings</button>
-                        </div>
+                        <h2>Welcome to NutmegAI</h2>
+                        <p>Your AI-powered football assistant.</p>
+ 
                     </div>
                 </div>
 
@@ -137,6 +127,7 @@
                     <div class="input-wrapper">
                         <input 
                             type="text" 
+                            class="input-field"
                             id="message-input" 
                             autocomplete="off" 
                             placeholder="Ask me about football..." 
@@ -168,7 +159,7 @@
                 // Create wrapper for bot messages to apply the typing animation
                 const textWrapper = document.createElement('div');
                 textWrapper.classList.add('message-text');
-                textWrapper.textContent = text;
+                textWrapper.innerHTML = text.replace(/\n/g, '<br>');  // Replace newlines with <br> tags
                 msg.appendChild(textWrapper);
             } else {
                 msg.textContent = text;
@@ -343,7 +334,10 @@
                 
                 // Handle chart data if present
                 if (data.chart_data) {
+                    // First display the text response
                     appendMessage('bot', data.response);
+                    
+                    // Then create the chart
                     createInteractiveChart(data.chart_data);
                 } else {
                     appendMessage('bot', data.response);

@@ -1,17 +1,17 @@
 /* Modern UI Design System - Stax.ai inspired */
 :root {
     /* Colors */
-    --primary-color: #2a52be;          /* Deep blue for primary actions */
+    --primary-color: #20B8CD;          /* Deep blue for primary actions */
     --primary-dark: #1a3580;           /* Darker blue for hover states */
     --secondary-color: #34d399;        /* Green accent for highlights */
     --secondary-dark: #10b981;         /* Darker green for hover */
-    --text-color: #1f2937;             /* Dark gray for main text */
-    --text-light: #6b7280;             /* Light gray for secondary text */
-    --bg-color: #ffffff;               /* White background */
-    --bg-gray: #f3f4f6;                /* Light gray background for sections */
-    --card-bg: #ffffff;                /* White for cards */
-    --message-user: #2a52be;           /* Blue for user messages */
-    --message-bot: #f9fafb;            /* Light gray for bot messages */
+    --text-color: #eee;             /* Dark gray for main text */
+    --text-light: #bbc0ca;             /* Light gray for secondary text */
+    --bg-color: #333;               /* White background */
+    --bg-gray: #555;                /* Light gray background for sections */
+    --card-bg: #555;                /* White for cards */
+    --message-user: #20B8CD;           /* Blue for user messages */
+    --message-bot: #555;            /* Light gray for bot messages */
     --border-color: #e5e7eb;           /* Light gray for borders */
     
     /* Shadows */
@@ -672,9 +672,9 @@ section:nth-child(even) {
     transition: all 0.5s ease;
 }
 
-.chat-interface:hover {
+/* .chat-interface:hover {
     transform: perspective(1000px) rotateX(2deg) translateY(-5px);
-}
+} */
 
 .chat-box {
     height: 400px;
@@ -697,7 +697,7 @@ section:nth-child(even) {
 .welcome-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: white;
     animation: pulse 3s infinite ease-in-out;
 }
 
@@ -841,7 +841,7 @@ section:nth-child(even) {
 }
 
 .fact-container {
-    background-color: var(--bg-gray);
+    background-color: #444;
     padding: 1rem;
     border-radius: 0.5rem;
     display: flex;
@@ -887,6 +887,11 @@ section:nth-child(even) {
     border-radius: 0.5rem;
     overflow: hidden;
     transition: box-shadow 0.3s ease;
+
+}
+
+.input-field {
+    color:white;
 }
 
 .input-wrapper:focus-within {
@@ -959,7 +964,7 @@ section:nth-child(even) {
 /* Chart Container */
 .chart-container {
     padding: 1rem;
-    background-color: var(--card-bg);
+    background-color: #fff !important;
     box-shadow: var(--shadow-sm);
     margin-bottom: 1.5rem;
     width: 100%;
