@@ -1,0 +1,14 @@
+QUERY: Which country has produced the most Ballon d'Or winners?
+
+EXPECTED:
+The country whose nationals have won the Ballon d'Or award the most times (counting each win).
+
+RESPONSE:
+Argentina has produced the most men's Ballon d'Or winners. This includes Lionel Messi, who has won the award a record eight times. As of 2024, Spain has had four winners, with Rodri being the most recent recipient.
+
+LINKS USED FOR SCRAPING:
+- https://www.statista.com/statistics/262951/world-footballer-of-the-year-award-ballon-dor-winners-by-nation/
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 44.46 seconds

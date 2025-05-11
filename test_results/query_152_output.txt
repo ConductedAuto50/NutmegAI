@@ -1,0 +1,14 @@
+QUERY: Who scored for Liverpool in their last Champions League match?
+
+EXPECTED:
+A list of Liverpool players who scored in their most recent Champions League match, if any.
+
+RESPONSE:
+In their last Champions League match, which was on March 11, 2025, against Paris Saint-Germain, Liverpool did not score any goals. The match ended 0-1 in regular time and extra time, with Paris Saint-Germain winning the subsequent penalty shootout 4-1.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/squads/822bd0ba/Liverpool-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 33.76 seconds

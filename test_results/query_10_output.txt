@@ -1,0 +1,20 @@
+QUERY: Which team had the best defensive record in the top 5 European leagues last season? Provide a graph comparing the top 3 teams.
+
+EXPECTED:
+Identification of the team with the fewest goals conceded in the top 5 European leagues for the last completed season. A graph comparing the goals conceded for the top 3 defensive teams.
+
+RESPONSE:
+In the 2023-2024 season across the top 5 European football leagues, Inter Milan of Serie A had the best defensive record, conceding the fewest goals with a total of 22. They were followed by Bayer Leverkusen from the Bundesliga, who conceded 24 goals, and Real Madrid from La Liga, who conceded 26 goals.
+
+[Chart data saved to test_results/chart_data_query_10.json]
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/comps/9/2023-2024/2023-2024-Premier-League-Stats
+- https://fbref.com/en/comps/12/2023-2024/2023-2024-La-Liga-Stats
+- https://fbref.com/en/comps/11/2023-2024/2023-2024-Serie-A-Stats
+- https://fbref.com/en/comps/20/2023-2024/2023-2024-Bundesliga-Stats
+- https://fbref.com/en/comps/13/2023-2024/2023-2024-Ligue-1-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 73.25 seconds

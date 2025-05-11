@@ -1,0 +1,14 @@
+QUERY: Compare the home and away performance of Atletico Madrid in La Liga 2021-22.
+
+EXPECTED:
+A comparison of Atletico Madrid's key statistics (e.g., points, wins, goals scored, goals conceded) for home matches versus away matches in La Liga 2021-22.
+
+RESPONSE:
+I am sorry, but I cannot provide the home and away performance comparison for Atletico Madrid in La Liga for the 2021-22 season based on the information available to me.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/squads/54582b93/2021-2022/roster/Real-Madrid-Women-Roster-Details
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 23.77 seconds

@@ -1,0 +1,14 @@
+QUERY: Which team had the most yellow cards in the 2018 World Cup?
+
+EXPECTED:
+The national team that received the highest number of yellow cards during the 2018 FIFA World Cup.
+
+RESPONSE:
+Based on the information provided, a comprehensive list of the total yellow cards accumulated by each team in the 2018 World Cup is not available. The data presented includes a leaderboard for individual players with the most yellow cards, but not an aggregation by team.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/comps/1/2018/2018-World-Cup-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 32.82 seconds

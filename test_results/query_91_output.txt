@@ -1,0 +1,14 @@
+QUERY: Who was the youngest player to score a hat-trick in the Champions League?
+
+EXPECTED:
+Name and age (at time of hat-trick) of the youngest player to score a hat-trick in a UEFA Champions League match.
+
+RESPONSE:
+The youngest player to score a hat-trick in the UEFA Champions League was Raúl. He achieved this for Real Madrid against Ferencváros on 18 October 1995, at the age of 18 years and 114 days.
+
+LINKS USED FOR SCRAPING:
+- https://en.wikipedia.org/wiki/List_of_UEFA_Champions_League_hat-tricks
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 24.29 seconds

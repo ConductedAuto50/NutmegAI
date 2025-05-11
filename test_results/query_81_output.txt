@@ -1,0 +1,14 @@
+QUERY: Which player has the most assists in World Cup history?
+
+EXPECTED:
+The player with the highest accumulated number of assists in FIFA World Cup history.
+
+RESPONSE:
+Based on World Cup history, two players are tied for the most assists: Lionel Messi and Diego Maradona. Both players have provided 8 assists in the tournament.
+
+LINKS USED FOR SCRAPING:
+- https://www.givemesport.com/most-assists-world-cup-history-messi-beckham/
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 32.17 seconds

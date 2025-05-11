@@ -1,0 +1,18 @@
+QUERY: List all teams promoted to the Premier League for the 2023-24 season.
+
+EXPECTED:
+A list of the three teams that were promoted from the EFL Championship to the Premier League for the 2023-24 season.
+
+RESPONSE:
+The teams promoted to the Premier League for the 2023-24 season were:
+
+*   Burnley
+*   Sheffield United
+*   Luton Town
+
+LINKS USED FOR SCRAPING:
+- https://en.wikipedia.org/wiki/2023%E2%80%9324_Premier_League
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 26.83 seconds

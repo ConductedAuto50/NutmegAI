@@ -1,6 +1,6 @@
 import requests
 import urllib.parse
-import dotenv
+from dotenv import load_dotenv
 import os 
 class GoogleSearchEngine:
     def __init__(self, api_key, cse_id):
@@ -27,10 +27,16 @@ class GoogleSearchEngine:
 
 # Example usage
 if __name__ == "__main__":
-    dotenv.load_dotenv()
+    load_dotenv(override=True)
     API_KEY = os.getenv("GSEARCH_API_KEY")
     CSE_ID = os.getenv("CSE_ID")
+    
 
+
+    # load_dotenv()
+    # print("From .env:", os.getenv("GSEARCH_API_KEY"))
+    # print("From environment:", os.environ.get("GSEARCH_API_KEY"))
+    print(API_KEY)
     search_engine = GoogleSearchEngine(api_key=API_KEY, cse_id=CSE_ID)
     results = search_engine.search("coppa italia 2022-23 stats fbref", num_results=10)
     print(type(results))

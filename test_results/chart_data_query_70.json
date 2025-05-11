@@ -1,0 +1,70 @@
+{
+  "data": {
+    "datasets": [
+      {
+        "backgroundColor": [
+          "#E90000",
+          "#00529F",
+          "#0A3161",
+          "#0A723D",
+          "#01993A",
+          "#CB3524"
+        ],
+        "borderColor": [
+          "#E90000",
+          "#00529F",
+          "#0A3161",
+          "#0A723D",
+          "#01993A",
+          "#CB3524"
+        ],
+        "borderWidth": 1,
+        "data": [
+          23,
+          19,
+          16,
+          15,
+          15,
+          15
+        ],
+        "label": "Goals Scored"
+      }
+    ],
+    "labels": [
+      "Robert Lewandowski (Barcelona)",
+      "Karim Benzema (Real Madrid)",
+      "Joselu (Espanyol)",
+      "Vedat Muriqi (Mallorca)",
+      "Borja Iglesias (Betis)",
+      "Antoine Griezmann (Atl\u00e9tico Madrid)"
+    ]
+  },
+  "options": {
+    "plugins": {
+      "legend": {
+        "display": false
+      },
+      "title": {
+        "display": true,
+        "text": "Top Goalscorers in La Liga 2022-23"
+      }
+    },
+    "responsive": true,
+    "scales": {
+      "x": {
+        "title": {
+          "display": true,
+          "text": "Player (Club)"
+        }
+      },
+      "y": {
+        "beginAtZero": true,
+        "title": {
+          "display": true,
+          "text": "Number of Goals"
+        }
+      }
+    }
+  },
+  "type": "bar"
+}

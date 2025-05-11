@@ -1,0 +1,52 @@
+{
+  "data": {
+    "datasets": [
+      {
+        "backgroundColor": "rgba(200, 16, 46, 0.8)",
+        "data": [
+          43,
+          27,
+          23,
+          31,
+          31,
+          30,
+          25,
+          33
+        ],
+        "label": "Goals Scored"
+      }
+    ],
+    "labels": [
+      "2017-2018",
+      "2018-2019",
+      "2019-2020",
+      "2020-2021",
+      "2021-2022",
+      "2022-2023",
+      "2023-2024",
+      "2024-2025"
+    ]
+  },
+  "options": {
+    "plugins": {
+      "legend": {
+        "display": false
+      },
+      "title": {
+        "display": true,
+        "text": "Mohamed Salah Goals Scored Per Season for Liverpool (All Competitions)"
+      }
+    },
+    "responsive": true,
+    "scales": {
+      "y": {
+        "beginAtZero": true,
+        "title": {
+          "display": true,
+          "text": "Number of Goals"
+        }
+      }
+    }
+  },
+  "type": "bar"
+}

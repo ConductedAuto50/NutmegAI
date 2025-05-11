@@ -1,0 +1,16 @@
+QUERY: Show the average goals per game in the 2018 World Cup.
+
+EXPECTED:
+The average number of goals scored per match during the 2018 FIFA World Cup.
+
+RESPONSE:
+In the 2018 World Cup, a total of 169 goals were scored across 64 matches played throughout the tournament.
+
+This results in an average of 2.64 goals per game.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/comps/1/2018/2018-World-Cup-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 37.50 seconds

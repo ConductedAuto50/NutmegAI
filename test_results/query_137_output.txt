@@ -1,0 +1,14 @@
+QUERY: Which player has the most assists in a single World Cup?
+
+EXPECTED:
+The player who holds the record for the most assists in a single FIFA World Cup tournament, and the number of assists.
+
+RESPONSE:
+Based on the available records, the player with the most assists in a single World Cup tournament is Raymond Kopa, who provided 9 assists for France in the 1958 tournament.
+
+LINKS USED FOR SCRAPING:
+- https://en.wikipedia.org/wiki/FIFA_World_Cup_records_and_statistics
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 27.46 seconds

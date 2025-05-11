@@ -1,0 +1,26 @@
+QUERY: Show the clubs Zlatan Ibrahimovic played for and his league goal tally at each club. Present as a table.
+
+EXPECTED:
+A table listing clubs Zlatan Ibrahimovic played for, and his corresponding number of league goals scored for each club.
+
+RESPONSE:
+Here are the clubs Zlatan Ibrahimović played for and his league goal tally at each club:
+
+| Club            | League Goals |
+| :-------------- | :----------- |
+| Malmö           | 3            |
+| Ajax            | 35           |
+| Juventus        | 23           |
+| Inter           | 57           |
+| Barcelona       | 16           |
+| Milan           | 76           |
+| Paris S-G       | 113          |
+| Manchester Utd  | 17           |
+| LA Galaxy       | 52           |
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/players/4cde5509/Zlatan-Ibrahimovic
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 41.92 seconds

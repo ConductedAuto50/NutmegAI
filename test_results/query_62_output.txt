@@ -1,0 +1,18 @@
+QUERY: Show a graph of Bayern Munich's points per season since 2010.
+
+EXPECTED:
+A bar or line graph showing the total points accumulated by Bayern Munich in the Bundesliga for each season from 2010-11 onwards.
+
+RESPONSE:
+Below is a graph illustrating Bayern Munich's points total in the domestic league for each season from 2010-2011 through 2023-2024.
+
+Over this period, Bayern Munich consistently achieved high points totals, reflecting their dominance in the league. Their points per season ranged from a low of 65 in the 2010-2011 season to a high of 91 in the 2012-2013 season. The data shows a strong period of performance from 2012-2013 to 2017-2018, where they regularly accumulated 80 or more points, including the record-breaking 91 points. More recent seasons have seen slightly lower, though still very high, points totals, generally fluctuating between the low 70s and high 80s.
+
+[Chart data saved to test_results/chart_data_query_62.json]
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/squads/054efa67/history/Bayern-Munich-Stats-and-History
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 74.01 seconds

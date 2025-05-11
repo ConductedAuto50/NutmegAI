@@ -1,0 +1,13 @@
+QUERY: Show a graph of the number of red cards per season in La Liga since 2000.
+
+EXPECTED:
+A bar or line graph showing the total number of red cards issued in La Liga for each season from 2000-01 onwards.
+
+RESPONSE:
+ERROR: Request failed with status code 500
+
+LINKS USED FOR SCRAPING:
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 173.37 seconds

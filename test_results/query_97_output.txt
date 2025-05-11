@@ -1,0 +1,16 @@
+QUERY: Which team had the best defensive record in Serie A 2022-23?
+
+EXPECTED:
+The team that conceded the fewest goals in Serie A during the 2022-23 season.
+
+RESPONSE:
+In the 2022-23 Serie A season, the team with the best defensive record was Napoli. They conceded the fewest goals of any team, allowing just 28 goals over the 38 matches.
+
+Lazio also had a strong defensive performance, conceding only 30 goals and keeping the most clean sheets in the league with 21. Juventus finished with the third-best defensive record, conceding 33 goals.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/comps/11/2022-2023/2022-2023-Serie-A-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 36.30 seconds

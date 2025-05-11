@@ -1,0 +1,19 @@
+QUERY: Compare the xG (expected goals) and actual goals scored by Manchester City and Arsenal in the Premier League 2022-23 season.
+
+EXPECTED:
+A comparison of total xG and total actual goals scored for both Manchester City and Arsenal in the EPL 2022-23 season.
+
+RESPONSE:
+In the 2022-23 Premier League season, Manchester City scored a total of 94 goals. Their expected goals (xG) for the season was 78.6. This indicates they scored 15.4 goals more than their xG suggested (94 actual goals minus 78.6 xG).
+
+Arsenal finished the season with 88 goals scored. Their expected goals (xG) was 71.6, meaning they scored 16.4 goals more than their xG (88 actual goals minus 71.6 xG).
+
+Both teams were very clinical in front of goal during the season, scoring significantly more than their expected goals, with Arsenal slightly overperforming their xG to a greater extent than Manchester City.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/squads/b8fd03ef/2022-2023/Manchester-City-Stats
+- https://fbref.com/en/squads/18bb7c10/2022-2023/c9/Arsenal-Stats-Premier-League
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 39.35 seconds

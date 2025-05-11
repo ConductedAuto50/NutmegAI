@@ -1,0 +1,20 @@
+QUERY: Show the transfer history of Neymar Jr.
+
+EXPECTED:
+A chronological list of Neymar Jr.'s club transfers, including the clubs involved and ideally the years of transfer.
+
+RESPONSE:
+Based on the information available, Neymar Jr.'s club history includes the following moves:
+
+1.  He started his senior career at **Santos** in Brazil.
+2.  He moved to **Barcelona** in Spain and played there from the 2013-2014 season through the 2016-2017 season.
+3.  He then transferred to **Paris Saint-Germain** in France, where he played from the 2017-2018 season through the 2022-2023 season.
+4.  Before the 2023-2024 season, he joined **Al-Hilal** in Saudi Arabia.
+5.  Currently, he is listed as playing for **Santos** again in the 2025 season.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/players/69384e5d/Neymar
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 44.13 seconds

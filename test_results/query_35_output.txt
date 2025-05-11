@@ -1,0 +1,14 @@
+QUERY: Who was the top scorer in the 2016 UEFA European Championship?
+
+EXPECTED:
+Name of the player(s) who won the Golden Boot (top scorer) in the UEFA Euro 2016.
+
+RESPONSE:
+The provided information focuses on the qualifying tournament for the 2016 UEFA European Championship. Details regarding the top scorer in the 2016 UEFA European Championship finals tournament itself are not available in this data.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/comps/678/2016/2016-UEFA-Euro-Qualifying-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 32.87 seconds

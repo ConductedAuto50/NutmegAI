@@ -1,0 +1,21 @@
+QUERY: Show the disciplinary record (yellow/red cards) of Sergio Ramos in his career.
+
+EXPECTED:
+A summary of Sergio Ramos's career yellow and red cards across all club and international competitions.
+
+RESPONSE:
+Throughout his career, Sergio Ramos has accumulated a notable disciplinary record. Across all competitions, he has received a total of 253 yellow cards and 28 red cards in 769 appearances.
+
+Here's a breakdown of his disciplinary record by competition type:
+
+*   **Domestic Leagues:** 197 yellow cards and 24 red cards in 589 matches.
+*   **International Cups:** 49 yellow cards and 4 red cards in 152 matches.
+*   **National Team:** 18 yellow cards and 0 red cards in 133 matches.
+*   **Domestic Cups:** 7 yellow cards and 0 red cards in 28 matches.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/players/08511d65/Sergio-Ramos
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 56.57 seconds

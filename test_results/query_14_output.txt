@@ -1,0 +1,14 @@
+QUERY: Which goalkeeper had the most clean sheets in Ligue 1 2021-22?
+
+EXPECTED:
+Name of the goalkeeper(s) with the most clean sheets in Ligue 1 for the 2021-22 season.
+
+RESPONSE:
+Walter Benítez had the most clean sheets in Ligue 1 during the 2021-22 season, with 14.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/comps/13/2021-2022/2021-2022-Ligue-1-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 23.32 seconds

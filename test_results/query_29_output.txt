@@ -1,0 +1,14 @@
+QUERY: Which club had the highest average attendance in the 2022-23 Bundesliga?
+
+EXPECTED:
+The club with the highest average home attendance in the Bundesliga for the 2022-23 season.
+
+RESPONSE:
+In the 2022-23 Bundesliga season, Bayern Munich had the highest average attendance with 75,000 fans per match.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/comps/20/2022-2023/2022-2023-Bundesliga-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 40.57 seconds

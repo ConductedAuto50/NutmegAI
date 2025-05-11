@@ -1,0 +1,16 @@
+QUERY: Show a graph of the number of goals scored in each World Cup since 1930.
+
+EXPECTED:
+A bar or line graph showing the total number of goals scored in each FIFA World Cup tournament from 1930 to the latest.
+
+RESPONSE:
+Here is a graph showing the total number of goals scored in each FIFA World Cup tournament from the inaugural event in 1930 up to the most recent tournament in 2022. The number of goals per tournament has varied significantly over the years, influenced by changes in the number of participating teams and the total number of matches played. The 2014 and 1998 tournaments hold the record for the highest number of goals scored in a single World Cup.
+
+[Chart data saved to test_results/chart_data_query_46.json]
+
+LINKS USED FOR SCRAPING:
+- https://www.statista.com/statistics/269031/goals-scored-per-game-at-the-fifa-world-cup-since-1930/
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 42.84 seconds

@@ -1,0 +1,14 @@
+QUERY: Show the win-loss record of Liverpool in the Champions League since 2015.
+
+EXPECTED:
+Liverpool's aggregate win-loss-draw record in Champions League matches played from the 2015-16 season onwards.
+
+RESPONSE:
+Since the 2015-2016 season, Liverpool's win-loss record in the Champions League is 48 wins and 18 losses.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/squads/822bd0ba/history/Liverpool-Stats-and-History
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 26.75 seconds

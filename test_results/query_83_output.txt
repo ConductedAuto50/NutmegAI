@@ -1,0 +1,14 @@
+QUERY: Who was the oldest goal scorer in a World Cup match?
+
+EXPECTED:
+Name and age (at the time of scoring) of the oldest player to have scored a goal in a FIFA World Cup match.
+
+RESPONSE:
+The oldest goal-scorer in a FIFA World Cup match was Roger Milla from Cameroon. He scored at the age of 42 years and 39 days against Russia in the 1994 World Cup in the USA.
+
+LINKS USED FOR SCRAPING:
+- https://www.olympics.com/en/news/oldest-goal-scorer-fifa-world-cup-football
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 27.62 seconds

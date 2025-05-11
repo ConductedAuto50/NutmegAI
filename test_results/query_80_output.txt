@@ -1,0 +1,27 @@
+QUERY: List all teams that have won the FIFA Club World Cup.
+
+EXPECTED:
+A list of all teams that have won the FIFA Club World Cup since its inception.
+
+RESPONSE:
+Here are the teams that have won the FIFA Club World Cup:
+
+*   Real Madrid (5 titles)
+*   Barcelona (3 titles)
+*   Corinthians (2 titles)
+*   Bayern Munich (2 titles)
+*   Liverpool (1 title)
+*   Chelsea (1 title)
+*   São Paulo (1 title)
+*   Internacional (1 title)
+*   Milan (1 title)
+*   Manchester United (1 title)
+*   Internazionale (1 title)
+*   Manchester City (1 title)
+
+LINKS USED FOR SCRAPING:
+- https://en.wikipedia.org/wiki/List_of_FIFA_Club_World_Cup_finals
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 29.23 seconds

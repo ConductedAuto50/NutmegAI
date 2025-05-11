@@ -1,0 +1,16 @@
+QUERY: Which player has the most headed goals in Premier League history?
+
+EXPECTED:
+The player credited with scoring the most headed goals in the history of the Premier League.
+
+RESPONSE:
+Based on the current statistics available, the player with the most headed goals listed is Chris Wood with 7 headed goals. Several players are tied for second place with 4 headed goals, including Erling Haaland, Alexander Isak, Kevin Schade, Ollie Watkins, and Yoane Wissa. Players with 3 headed goals include Richarlison, Gabriel Magalhães, Dean Huijsen, and Mikel Merino.
+
+Information regarding the player with the most headed goals in Premier League history is not available.
+
+LINKS USED FOR SCRAPING:
+- https://www.premierleague.com/stats/top/players/att_hd_goal
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 31.56 seconds

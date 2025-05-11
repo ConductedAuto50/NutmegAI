@@ -1,0 +1,72 @@
+{
+  "data": {
+    "datasets": [
+      {
+        "backgroundColor": "#002B5C",
+        "data": [
+          47,
+          20,
+          24,
+          23,
+          24,
+          20,
+          27,
+          24,
+          30,
+          43,
+          38,
+          37,
+          33,
+          31,
+          33
+        ],
+        "label": "Goals Conceded in Serie A"
+      }
+    ],
+    "labels": [
+      "2010-11",
+      "2011-12",
+      "2012-13",
+      "2013-14",
+      "2014-15",
+      "2015-16",
+      "2016-17",
+      "2017-18",
+      "2018-19",
+      "2019-20",
+      "2020-21",
+      "2021-22",
+      "2022-23",
+      "2023-24",
+      "2024-25"
+    ]
+  },
+  "options": {
+    "plugins": {
+      "legend": {
+        "display": true
+      },
+      "title": {
+        "display": true,
+        "text": "Juventus Serie A Goals Conceded by Season (2010-11 to 2024-25)"
+      }
+    },
+    "responsive": true,
+    "scales": {
+      "x": {
+        "title": {
+          "display": true,
+          "text": "Season"
+        }
+      },
+      "y": {
+        "beginAtZero": true,
+        "title": {
+          "display": true,
+          "text": "Goals Conceded"
+        }
+      }
+    }
+  },
+  "type": "bar"
+}

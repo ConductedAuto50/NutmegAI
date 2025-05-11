@@ -1,0 +1,14 @@
+QUERY: When is Real Madrid's next La Liga match and against whom?
+
+EXPECTED:
+Date and opponent for Real Madrid's next scheduled La Liga match.
+
+RESPONSE:
+Real Madrid's next La Liga match is on Sunday, May 11, against Barcelona.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/squads/53a2f082/Real-Madrid-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 27.74 seconds

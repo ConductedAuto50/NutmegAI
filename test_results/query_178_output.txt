@@ -1,0 +1,14 @@
+QUERY: Which manager has won the most Champions League titles?
+
+EXPECTED:
+The name of the manager(s) who has won the most UEFA Champions League titles.
+
+RESPONSE:
+Carlo Ancelotti has won the European Cup and UEFA Champions League title more times than any other manager, with five wins. He achieved this success with AC Milan in 2003 and 2007, and with Real Madrid in 2014, 2022, and 2024.
+
+LINKS USED FOR SCRAPING:
+- https://en.wikipedia.org/wiki/List_of_European_Cup_and_UEFA_Champions_League_winning_managers
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 26.54 seconds

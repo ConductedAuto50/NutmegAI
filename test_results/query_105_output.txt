@@ -1,0 +1,16 @@
+QUERY: Which club has the most Eredivisie titles?
+
+EXPECTED:
+The club with the most Eredivisie (Dutch top-flight league) titles.
+
+RESPONSE:
+Ajax is the club with the most Eredivisie titles, having won it 28 times. PSV is second with 22 titles, and Feyenoord is third with 11 titles.
+
+Note: The table under the "Champions" heading includes titles won before the Eredivisie was founded in 1956, which is why Ajax is listed with 36 overall national championships there. However, when considering titles specifically since the Eredivisie began, Ajax has won 28.
+
+LINKS USED FOR SCRAPING:
+- https://en.wikipedia.org/wiki/Eredivisie
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 37.52 seconds

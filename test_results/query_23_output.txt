@@ -1,0 +1,16 @@
+QUERY: How many hat-tricks did Robert Lewandowski score in the 2020-21 season?
+
+EXPECTED:
+The number of hat-tricks scored by Robert Lewandowski across all competitions during the 2020-21 season.
+
+RESPONSE:
+Based on the provided information, I cannot determine the exact number of hat-tricks Robert Lewandowski scored in the 2020-21 season.
+
+The statistics provided for that season show his total goals across various competitions (e.g., 41 goals in the Bundesliga, 5 in the Champions League), but they do not include a breakdown of goals per match, which would be necessary to identify hat-tricks.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/players/8d78e732/Robert-Lewandowski
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 60.50 seconds

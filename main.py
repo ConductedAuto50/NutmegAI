@@ -14,7 +14,7 @@ import time
 # Apply nest_asyncio to allow nested event loops (needed for asyncio.run inside Flask)
 nest_asyncio.apply()
 
-dotenv.load_dotenv()
+dotenv.load_dotenv(override=True)
 
 # clear previous outputs and conversation
 output_folder = "outputs"
@@ -77,6 +77,11 @@ def chat_api():
     query = data.get('message', '')
     if query.lower() == 'bye':
         return jsonify(response="Goodbye!")
+    
+    if query.lower() == 'reset_state':
+        visited_links.clear()
+        current_summaries.clear()
+        return jsonify(response="Server state reset.")
     
     # log user query
     with open("conversation.txt", "a") as f:
@@ -204,13 +209,13 @@ def chat_api():
                     if graph_data:
                         try:
                             chart_config = json.loads(graph_data)
-                            return jsonify(response=text_out, chart_data=chart_config)
+                            return jsonify(response=text_out, chart_data=chart_config, links=links, summary_links=summary_links)
                         except json.JSONDecodeError as e:
                             print(f"JSON decode error: {e}")
                             # Fallback in case of invalid JSON
-                            return jsonify(response=text_out + "\n\nSorry, there was an error generating the interactive chart.")
+                            return jsonify(response=text_out + "\n\nSorry, there was an error generating the interactive chart.", links=links, summary_links=summary_links)
                     else:
-                        return jsonify(response=text_out)
+                        return jsonify(response=text_out, links=links, summary_links=summary_links)
                 except Exception as e:
                     print(f"Error parsing LLM output for graph content: {e}")
                     print("Retrying from the beginning...")
@@ -222,7 +227,7 @@ def chat_api():
                 with open("conversation.txt", "a") as f:
                     f.write(f"LLM output {i}: {out}\n")
                 i += 1
-                return jsonify(response=out)
+                return jsonify(response=out, links=links, summary_links=summary_links)
         except Exception as e:
             print(f"Error generating interactive graph: {e}")
             print("Retrying graph content generation...")
@@ -242,16 +247,16 @@ def chat_api():
                     if graph_data:
                         try:
                             chart_config = json.loads(graph_data)
-                            return jsonify(response=text_out, chart_data=chart_config)
+                            return jsonify(response=text_out, chart_data=chart_config, links=links, summary_links=summary_links)
                         except json.JSONDecodeError as e:
-                            return jsonify(response=text_out + "\n\nSorry, there was an error generating the interactive chart.")
+                            return jsonify(response=text_out + "\n\nSorry, there was an error generating the interactive chart.", links=links, summary_links=summary_links)
                     else:
-                        return jsonify(response=text_out)
+                        return jsonify(response=text_out, links=links, summary_links=summary_links)
                 else:
                     with open("conversation.txt", "a") as f:
                         f.write(f"LLM output {i}: {out}\n")
                     i += 1
-                    return jsonify(response=out)
+                    return jsonify(response=out, links=links, summary_links=summary_links)
             except Exception as e:
                 print(f"Error on retry for graph generation: {e}")
                 # If retry also fails, fall back to regular output
@@ -259,13 +264,13 @@ def chat_api():
                 with open("conversation.txt", "a") as f:
                     f.write(f"LLM output {i}: {out}\n")
                 i += 1
-                return jsonify(response=out + "\n\nSorry, there was an error generating the interactive chart.")
+                return jsonify(response=out + "\n\nSorry, there was an error generating the interactive chart.", links=links, summary_links=summary_links)
     else:
         out = llm.generate_output(query)
         with open("conversation.txt", "a") as f:
             f.write(f"LLM output {i}: {out}\n")
         i += 1
-        return jsonify(response=out)
+        return jsonify(response=out, links=links, summary_links=summary_links)
     
 if __name__ == '__main__':
     app.run(debug=True)

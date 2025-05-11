@@ -1,0 +1,14 @@
+QUERY: Who scored the fastest hat-trick in Champions League history?
+
+EXPECTED:
+Player's name and the time taken for the fastest hat-trick scored in UEFA Champions League history.
+
+RESPONSE:
+Mohamed Salah holds the record for the fastest hat-trick in Champions League history. He scored a treble in just 7 minutes (timed at 6 minutes 12 seconds) for Liverpool against Rangers on 12/10/2022. He achieved this feat after coming off the bench in the match which Liverpool won 7-1.
+
+LINKS USED FOR SCRAPING:
+- https://www.uefa.com/uefachampionsleague/news/0257-0e99f0d0d91b-eb0f4ba7a8f7-1000--champions-league-hat-tricks-who-has-the-most-when-was-th/
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 20.98 seconds

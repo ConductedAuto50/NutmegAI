@@ -1,0 +1,66 @@
+{
+  "data": {
+    "datasets": [
+      {
+        "backgroundColor": [
+          "#001F5B",
+          "#003060",
+          "#E3000C",
+          "#C8102E",
+          "#241F20"
+        ],
+        "borderColor": [
+          "#001F5B",
+          "#003060",
+          "#E3000C",
+          "#C8102E",
+          "#241F20"
+        ],
+        "borderWidth": 1,
+        "data": [
+          36,
+          30,
+          20,
+          19,
+          18
+        ],
+        "label": "Goals"
+      }
+    ],
+    "labels": [
+      "Erling Haaland (Manchester City)",
+      "Harry Kane (Tottenham)",
+      "Ivan Toney (Brentford)",
+      "Mohamed Salah (Liverpool)",
+      "Callum Wilson (Newcastle Utd)"
+    ]
+  },
+  "options": {
+    "plugins": {
+      "legend": {
+        "display": false
+      },
+      "title": {
+        "display": true,
+        "text": "Top 5 Premier League Goalscorers 2022-2023"
+      }
+    },
+    "responsive": true,
+    "scales": {
+      "x": {
+        "title": {
+          "display": true,
+          "text": "Player (Club)"
+        }
+      },
+      "y": {
+        "beginAtZero": true,
+        "title": {
+          "display": true,
+          "text": "Number of Goals"
+        }
+      }
+    }
+  },
+  "type": "bar"
+}

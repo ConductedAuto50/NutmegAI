@@ -1,0 +1,20 @@
+QUERY: What is the all-time head-to-head record between Manchester United and Liverpool in the Premier League?
+
+EXPECTED:
+The overall win-draw-loss record for Manchester United vs. Liverpool in all Premier League encounters.
+
+RESPONSE:
+Based on the information available, the all-time head-to-head record between Manchester United and Liverpool in league matches (including the Premier League era and previous divisions) is:
+
+*   **Manchester United wins:** 69
+*   **Liverpool wins:** 62
+*   **Draws:** 53
+
+This record covers all competitive league encounters between the two clubs since 1895. The data does not specifically break down the head-to-head record solely for matches played in the Premier League since its formation in 1992.
+
+LINKS USED FOR SCRAPING:
+- https://en.wikipedia.org/wiki/Liverpool_F.C.%E2%80%93Manchester_United_F.C._rivalry
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 39.04 seconds

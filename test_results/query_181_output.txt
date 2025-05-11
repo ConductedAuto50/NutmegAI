@@ -1,0 +1,19 @@
+QUERY: What happened in Bayern Munich's last Bundesliga match? Include score, scorers, and a brief highlight.
+
+EXPECTED:
+Score, scorers for both teams, and one key highlight from Bayern Munich's last Bundesliga game.
+
+RESPONSE:
+In their last Bundesliga match on Saturday, May 10, Bayern Munich defeated Borussia Mönchengladbach 2-0 at the Allianz Arena.
+
+The scoring was opened in the 31st minute when Harry Kane deflected a shot from Michael Olise for the first goal. Olise then sealed the victory himself with a goal in the 90th minute.
+
+A significant highlight of the match was club icon Thomas Müller's farewell in his final home game after 25 years at Bayern. He received a brief ceremony before the game and a standing ovation when he was substituted late in the second half. Despite Gladbach starting in a more attacking fashion, Bayern secured the win, which also featured a successful comeback from injury for goalkeeper Manuel Neuer, who made a string of saves after halftime.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/squads/054efa67/Bayern-Munich-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+- https://www.espn.in/football/report/_/gameId/711720
+
+TIME TAKEN: 42.00 seconds

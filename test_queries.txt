@@ -3,66 +3,78 @@
 # and explanations of features being tested.
 
 ## Basic Player Statistics Queries
-# These queries retrieve player data from fbref.com
 
-QUERY 1: "How many goals has Lionel Messi scored in his career?"
+QUERY 158: "Who holds the record for most appearances for AC Milan?"
+FEATURE: Club historical record retrieval (most appearances)
+EXPECTED: The name of the player with the most official appearances for AC Milan. (Paolo Maldini)
+OUTPUT: Not yet executed
 
-QUERY 2: "Compare the career goal statistics of Cristiano Ronaldo and Lionel Messi"
-FEATURE: Multiple player comparison
-EXPECTED: A comparison of goal statistics between two players
-OUTPUT: [To be filled during execution]
+QUERY 161: "Show the clubs Zlatan Ibrahimovic played for and his league goal tally at each club. Present as a table."
+FEATURE: Player career path with specific statistic (league goals) per club, tabular output
+EXPECTED: A table listing clubs Zlatan Ibrahimovic played for, and his corresponding number of league goals scored for each club.
+OUTPUT: Not yet executed
 
-## Team Statistics Queries
-# These queries retrieve team data from fbref.com
+QUERY 163: "When is Real Madrid's next La Liga match and against whom?"
+FEATURE: Upcoming fixture retrieval (may require live data source)
+EXPECTED: Date and opponent for Real Madrid's next scheduled La Liga match.
+OUTPUT: Not yet executed
 
-QUERY 3: "How did Real Madrid perform in La Liga in the 2022-23 season?"
-FEATURE: Team season data lookup
-EXPECTED: Details about Real Madrid's performance in that specific season
-OUTPUT: [To be filled during execution]
+QUERY 167: "Detail AC Milan's path to the 2007 Champions League final, including opponents and scores in knockout rounds."
+FEATURE: Team tournament progression retrieval
+EXPECTED: A list of AC Milan's opponents and match scores for each knockout round (Round of 16, Quarter-final, Semi-final) in their 2006-07 Champions League campaign.
+OUTPUT: Not yet executed
 
-QUERY 4: "Compare Barcelona and Real Madrid's performance in La Liga over the past 3 seasons"
-FEATURE: Team comparison across multiple seasons
-EXPECTED: Comparison of key statistics between the teams
-OUTPUT: [To be filled during execution]
+QUERY 169: "Show Kevin De Bruyne's goals, assists, and chances created in the Premier League 2022-23 season."
+FEATURE: Multiple specific statistics retrieval for a player in a season
+EXPECTED: Kevin De Bruyne's total goals, assists, and chances created in the Premier League for the 2022-23 season.
+OUTPUT: Not yet executed
 
-## Competition Statistics Queries
-# These queries retrieve data about specific competitions
+QUERY 171: "List all players who have won the Puskas Award and the year they won it."
+FEATURE: Historical award winner retrieval with year
+EXPECTED: A list of all Puskas Award winners and the corresponding year of their award.
+OUTPUT: Not yet executed
 
-QUERY 5: "Who were the top goal scorers in the Premier League 2023-24 season?"
-FEATURE: Competition leaderboard retrieval
-EXPECTED: A list of top scorers in the specified competition and season
-OUTPUT: [To be filled during execution]
+QUERY 172: "What is Manchester United's biggest ever win in the Premier League by scoreline?"
+FEATURE: Team historical record retrieval (biggest win)
+EXPECTED: The scoreline and opponent for Manchester United's largest margin of victory in a Premier League match.
+OUTPUT: Not yet executed
 
-## Graph Generation Queries
-# These queries test the graph generation capabilities
+QUERY 175: "Who was the top scorer for Chelsea in the 2004-05 Premier League season?"
+FEATURE: Team top scorer retrieval for a specific season and competition
+EXPECTED: The name of Chelsea's top goal scorer in the Premier League for the 2004-05 season (Frank Lampard).
+OUTPUT: Not yet executed
 
-QUERY 6: "Show me the goals scored by Bayern Munich in the last 3 Bundesliga seasons in a graph"
-FEATURE: Graph generation for team performance
-EXPECTED: A graph showing goals scored across seasons
-OUTPUT: [To be filled during execution]
+QUERY 176: "Provide a summary of the latest El Clasico match including score, scorers, and key events."
+FEATURE: Recent specific match summary retrieval (ESPN scraper for high-profile match)
+EXPECTED: A summary from ESPN of the most recent Real Madrid vs Barcelona match, including final score, goal scorers, and notable incidents.
+OUTPUT: Not yet executed
 
-QUERY 7: "Create a graphical comparison of Real Madrid vs Barcelona match results in El Clasico over the last 4 matches"
-FEATURE: Graph generation for match comparison
-EXPECTED: A bar graph comparing scores in recent El Clasico matches
-OUTPUT: [To be filled during execution]
+QUERY 178: "Which manager has won the most Champions League titles?"
+FEATURE: Historical managerial record retrieval (most titles in a competition)
+EXPECTED: The name of the manager(s) who has won the most UEFA Champions League titles.
+OUTPUT: Not yet executed
 
-## Match Summary Queries
-# These queries test the ESPN match summary scraper
+QUERY 179: "Show a graphical representation of Real Madrid's goal difference in La Liga for the past 5 seasons."
+FEATURE: Graph generation for team performance trend (goal difference)
+EXPECTED: A bar or line graph illustrating Real Madrid's final goal difference in La Liga for each of the last five completed seasons.
+OUTPUT: Not yet executed
 
-QUERY 8: "Provide a detailed summary of the Champions League final between Manchester City and Inter Milan in 2023"
-FEATURE: Match summary retrieval
-EXPECTED: A detailed match report including key moments and analysis
-OUTPUT: [To be filled during execution]
+QUERY 181: "What happened in Bayern Munich's last Bundesliga match? Include score, scorers, and a brief highlight."
+FEATURE: Recent team match summary with specific details (potential ESPN scraper use)
+EXPECTED: Score, scorers for both teams, and one key highlight from Bayern Munich's last Bundesliga game.
+OUTPUT: Not yet executed
 
-## Multiple Feature Queries
-# These queries test combinations of features
+QUERY 183: "Generate a pie chart showing the proportion of goals scored by Lionel Messi with his left foot, right foot, and head in his La Liga career for Barcelona."
+FEATURE: Player goal breakdown visualization (pie chart) for specific club tenure
+EXPECTED: A pie chart visualizing the percentage of Messi's La Liga goals for Barcelona scored by left foot, right foot, and headers.
+OUTPUT: Not yet executed
 
-QUERY 9: "Compare Kylian Mbappe's goal scoring record before and after joining Real Madrid. Include a graph of his performance."
-FEATURE: Player statistics across teams with graph generation
-EXPECTED: Statistical analysis with graphical representation
-OUTPUT: [To be filled during execution]
+QUERY 184: "Who was the Man of the Match in the 2022 World Cup Final according to ESPN?"
+FEATURE: Specific match award retrieval (ESPN scraper)
+EXPECTED: The player named Man of the Match for the Argentina vs France World Cup 2022 final, based on ESPN's reporting.
+OUTPUT: Not yet executed
 
-QUERY 10: "Which team had the best defensive record in the top 5 European leagues last season? Provide a graph comparing the top 3 teams."
-FEATURE: Cross-competition comparison with graph generation
-EXPECTED: Analysis of defensive statistics with graphical comparison
-OUTPUT: [To be filled during execution] 
+QUERY 185: "Compare the xG (expected goals) and actual goals scored by Manchester City and Arsenal in the Premier League 2022-23 season."
+FEATURE: Team performance comparison using advanced metrics (xG vs actual goals)
+EXPECTED: A comparison of total xG and total actual goals scored for both Manchester City and Arsenal in the EPL 2022-23 season.
+OUTPUT: Not yet executed

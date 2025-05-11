@@ -1,0 +1,14 @@
+QUERY: Which player has the most appearances in the Africa Cup of Nations?
+
+EXPECTED:
+The player with the most appearances in the history of the Africa Cup of Nations.
+
+RESPONSE:
+Rigobert Song of Cameroon and André Ayew of Ghana hold the record for the most appearances in the Africa Cup of Nations, each having played in 36 matches at the tournament.
+
+LINKS USED FOR SCRAPING:
+- https://en.wikipedia.org/wiki/Africa_Cup_of_Nations_records_and_statistics
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 26.15 seconds

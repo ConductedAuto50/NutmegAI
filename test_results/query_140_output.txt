@@ -1,0 +1,16 @@
+QUERY: List all players who have won the Golden Boot in both the World Cup and European Championship.
+
+EXPECTED:
+A list of players who have been the top scorer (won the Golden Boot) in both a FIFA World Cup and a UEFA European Championship.
+
+RESPONSE:
+Based on the information provided, I cannot give you a list of all players who have won the Golden Boot in both the World Cup and the European Championship.
+
+The text states that only two players have won the Golden Boot for the UCL, World Cup, *and* EURO, and that both of those players were associated with Bayern. However, it does not provide a list of players who won the Golden Boot in *only* the World Cup and EURO.
+
+LINKS USED FOR SCRAPING:
+- https://www.reddit.com/r/fcbayern/comments/1es13aw/only_2_players_have_won_the_golden_boot_for_the/
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 29.80 seconds

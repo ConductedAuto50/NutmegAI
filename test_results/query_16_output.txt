@@ -1,0 +1,15 @@
+QUERY: Compare the passing accuracy of Luka Modric and Toni Kroos in La Liga 2020-21.
+
+EXPECTED:
+A side-by-side comparison of passing accuracy percentages for Luka Modric and Toni Kroos in La Liga during the 2020-21 season.
+
+RESPONSE:
+In La Liga during the 2020-2021 season, Toni Kroos had a passing completion percentage of 89.5%. In the same competition and season, Luka Modrić's passing accuracy was 85.6%.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/players/6025fab1/Luka-Modric
+- https://fbref.com/en/players/6ce1f46f/Toni-Kroos
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 62.16 seconds

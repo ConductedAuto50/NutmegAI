@@ -1,0 +1,14 @@
+QUERY: Generate a pie chart showing the proportion of goals scored by Lionel Messi with his left foot, right foot, and head in his La Liga career for Barcelona.
+
+EXPECTED:
+A pie chart visualizing the percentage of Messi's La Liga goals for Barcelona scored by left foot, right foot, and headers.
+
+RESPONSE:
+Unfortunately, the provided data does not contain a breakdown of Lionel Messi's goals for Barcelona in La Liga by the specific body part used (left foot, right foot, or head). Therefore, it is not possible to generate a pie chart showing the proportion of goals scored with each part from the available information.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/players/d70ce98e/Lionel-Messi
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 67.95 seconds

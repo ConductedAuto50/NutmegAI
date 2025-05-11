@@ -1,0 +1,14 @@
+QUERY: Who was the manager of Inter Milan during their 2009-10 treble-winning season?
+
+EXPECTED:
+The name of the manager of Inter Milan for the 2009-10 season. (Jose Mourinho)
+
+RESPONSE:
+José Mourinho was the manager of Inter Milan during their treble-winning season in 2009–10.
+
+LINKS USED FOR SCRAPING:
+- https://en.wikipedia.org/wiki/List_of_Inter_Milan_managers
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 26.58 seconds

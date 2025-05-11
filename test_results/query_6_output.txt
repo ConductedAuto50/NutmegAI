@@ -1,0 +1,24 @@
+QUERY: Show me the goals scored by Bayern Munich in the last 3 Bundesliga seasons in a graph
+
+EXPECTED:
+A bar or line graph showing the number of goals scored by Bayern Munich in each of the last 3 Bundesliga seasons.
+
+RESPONSE:
+Here are the goals scored by Bayern Munich in the last three Bundesliga seasons:
+
+In the 2022-2023 Bundesliga season, Bayern Munich scored a total of 92 goals.
+In the 2023-2024 Bundesliga season, they scored 94 goals.
+Looking at the current 2024-2025 Bundesliga season, Bayern Munich has scored 95 goals so far.
+
+Below is a bar chart visualizing these goal totals across the three seasons.
+
+[Chart data saved to test_results/chart_data_query_6.json]
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/squads/054efa67/Bayern-Munich-Stats
+- https://fbref.com/en/squads/054efa67/2023-2024/Bayern-Munich-Stats
+- https://fbref.com/en/squads/054efa67/2022-2023/Bayern-Munich-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 35.88 seconds

@@ -1,0 +1,24 @@
+QUERY: Compare Kylian Mbappe's goal scoring record before and after joining Real Madrid. Include a graph of his performance.
+
+EXPECTED:
+Statistical analysis of Mbappe's goal scoring (e.g., goals per game) at PSG (or previous clubs) vs Real Madrid, accompanied by a graph showing goals per season for these periods.
+
+RESPONSE:
+Kylian Mbappé's goal-scoring record demonstrates consistent high performance throughout his career before joining Real Madrid, and a strong start in his debut season with the Spanish club.
+
+Prior to his move to Real Madrid for the 2024-2025 season, Mbappé played for Monaco and Paris Saint-Germain. He spent two full seasons and parts of two others at Monaco, scoring a total of 25 goals across all competitions. His most prolific period was at Paris Saint-Germain, where he played for seven seasons (including a partial season shared with Monaco). During his time at PSG, he scored a remarkable 256 goals in all competitions. Combining his goals from Monaco and PSG, Mbappé scored a total of 281 goals before commencing his tenure at Real Madrid.
+
+In his first season with Real Madrid (2024-2025), as of May 10, 2025, Mbappé has scored 35 goals across all competitions. This includes 24 goals in La Liga and 7 goals in the Champions League. While this season is not yet complete, his current tally indicates he is maintaining his impressive goal-scoring rate. His 35 goals in 51 appearances so far for Real Madrid show a strong immediate impact since his transfer.
+
+His season-by-season goal tally across all competitions before joining Real Madrid was: 1 goal (2015-2016), 24 goals (2016-2017), 21 goals (2017-2018, split between Monaco and PSG), 39 goals (2018-2019), 30 goals (2019-2020), 42 goals (2020-2021), 39 goals (2021-2022), 41 goals (2022-2023), and 44 goals (2023-2024). His current season at Real Madrid (2024-2025) stands at 35 goals.
+
+Comparing his current season at Real Madrid to his previous seasons, his scoring rate is comparable to, though slightly lower than, his peak seasons at PSG where he consistently scored above 35 goals. However, with the season still ongoing, he has the potential to match or even exceed some of his previous tallies.
+
+Sorry, there was an error generating the interactive chart.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/players/42fd9c7f/Kylian-Mbappe
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 57.42 seconds

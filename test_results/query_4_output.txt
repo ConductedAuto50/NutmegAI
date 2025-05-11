@@ -1,0 +1,72 @@
+QUERY: Compare Barcelona and Real Madrid's performance in La Liga over the past 3 seasons
+
+EXPECTED:
+Comparison of key statistics (e.g., points, rank, goals scored, goals conceded) between Barcelona and Real Madrid in La Liga for the last three completed seasons.
+
+RESPONSE:
+Over the past three La Liga seasons (2022-2023, 2023-2024, and the ongoing 2024-2025 season), Barcelona and Real Madrid have consistently finished in the top two positions, showcasing their dominance in the league. Here's a breakdown of their performance each season:
+
+**2022-2023 Season:**
+
+*   **League Position:** Barcelona finished as champions (1st), while Real Madrid secured the runner-up spot (2nd).
+*   **Points:** Barcelona accumulated 88 points, 10 more than Real Madrid's 78.
+*   **Record:** Barcelona had a record of 28 wins, 4 draws, and 6 losses. Real Madrid had 24 wins, 6 draws, and 8 losses.
+*   **Goals Scored:** Real Madrid outscored Barcelona 75 to 70.
+*   **Goals Conceded:** Barcelona boasted a significantly better defensive record, conceding just 20 goals compared to Real Madrid's 36.
+*   **Goal Difference:** Barcelona had a superior goal difference of +50 compared to Real Madrid's +39.
+*   **Expected Goals (xG):** Both teams had the same Expected Goals value of 75.5, suggesting similar quality in attacking chances created.
+*   **Expected Goals Against (xGA):** Barcelona's Expected Goals Against was 33.2, indicating they were expected to concede fewer goals than Real Madrid, whose xGA was 38.9.
+*   **Expected Goal Difference (xGD):** Barcelona had a higher xGD of +42.3, compared to Real Madrid's +36.6.
+*   **Top Scorer:** Robert Lewandowski was Barcelona's top scorer with 23 goals, while Karim Benzema led Real Madrid with 19.
+*   **Main Goalkeeper:** Marc-André ter Stegen for Barcelona and Thibaut Courtois for Real Madrid.
+
+In 2022-2023, Barcelona's title win was underpinned by a remarkably strong defense, although Real Madrid edged them slightly in actual goals scored. Expected metrics suggested a similar attacking output but a clear defensive advantage for Barcelona.
+
+**2023-2024 Season:**
+
+*   **League Position:** Real Madrid claimed the title (1st), with Barcelona finishing 2nd.
+*   **Points:** Real Madrid earned 95 points, 10 more than Barcelona's 85.
+*   **Record:** Real Madrid had a near-perfect season with 29 wins, 8 draws, and just 1 loss. Barcelona had 26 wins, 7 draws, and 5 losses.
+*   **Goals Scored:** Real Madrid scored significantly more goals (87) than Barcelona (79).
+*   **Goals Conceded:** Real Madrid also had a tighter defense, conceding 26 goals compared to Barcelona's 44.
+*   **Goal Difference:** Real Madrid's goal difference was +61, while Barcelona's was +35.
+*   **Expected Goals (xG):** Barcelona (77.6) slightly edged Real Madrid (68.8) in terms of attacking chance quality.
+*   **Expected Goals Against (xGA):** Real Madrid (35.4) had a lower xGA than Barcelona (41.6), indicating better expected defensive performance.
+*   **Expected Goal Difference (xGD):** Barcelona had a higher xGD of +35.9, compared to Real Madrid's +33.4.
+*   **Top Scorer:** Both Robert Lewandowski (Barcelona) and Jude Bellingham (Real Madrid) scored 19 goals to be their teams' top scorers.
+*   **Main Goalkeeper:** Marc-André ter Stegen for Barcelona (though Iñaki Peña also featured significantly) and Andriy Lunin for Real Madrid (Thibaut Courtois was injured for most of the season).
+
+The 2023-2024 season saw a reversal, with Real Madrid finishing comfortably ahead of Barcelona, driven by a potent attack and solid defense. Despite Barcelona generating slightly better quality chances going forward (higher xG and xGD), Real Madrid's clinical finishing and defensive strength (lower actual GA) proved decisive.
+
+**2024-2025 Season (Ongoing - Data from 34 or 35 matches):**
+
+*   **League Position:** As of the latest data, Barcelona are leading the league (1st), followed by Real Madrid (2nd).
+*   **Points:** Barcelona have 79 points from 34 matches, while Real Madrid have 75 points from 34 matches.
+*   **Record:** Barcelona's record is 25 wins, 4 draws, and 5 losses. Real Madrid's record is 23 wins, 6 draws, and 5 losses.
+*   **Goals Scored:** Barcelona have scored significantly more goals (91) than Real Madrid (69).
+*   **Goals Conceded:** Both teams have conceded the same number of goals (33) so far.
+*   **Goal Difference:** Barcelona have a higher goal difference of +58 compared to Real Madrid's +36.
+*   **Expected Goals (xG):** Barcelona (81.8) again have a higher xG than Real Madrid (65.4).
+*   **Expected Goals Against (xGA):** Barcelona (34.8) have a slightly lower xGA than Real Madrid (36.7).
+*   **Expected Goal Difference (xGD):** Barcelona's xGD is +46.9, significantly higher than Real Madrid's +28.7.
+*   **Top Scorer:** Robert Lewandowski leads Barcelona with 25 goals. Kylian Mbappé is Real Madrid's top scorer with 24.
+*   **Main Goalkeeper:** Iñaki Peña for Barcelona and Thibaut Courtois for Real Madrid.
+
+In the current season, Barcelona holds a slight edge in points and a significant lead in goals scored and Expected Goal metrics. Defensively, their actual goals conceded record is identical, although expected data suggests Barcelona should have conceded marginally fewer.
+
+**Summary across the seasons:**
+
+Both clubs have maintained their status as the top two teams in La Liga. Barcelona won the title in 2022-2023 and are currently leading in 2024-2025, while Real Madrid were champions in 2023-2024.
+
+Barcelona consistently generates higher Expected Goals (xG) and Expected Goal Difference (xGD) over these seasons, suggesting they create a greater volume and quality of attacking opportunities. However, Real Madrid demonstrated superior efficiency in converting chances (scoring more than their xG in 2023-2024) and a slightly better actual defensive record in 2023-2024 despite Barcelona's lower Expected Goals Against in two of the three seasons.
+
+The goal difference fluctuates, heavily influenced by goals scored and conceded in each specific season. Top scorers have varied, with Lewandowski being a consistent threat for Barcelona, while Real Madrid's top spot was held by Benzema, Bellingham, and Mbappé in successive seasons. The goalkeeper situation has also seen changes, particularly for Real Madrid.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/comps/12/2022-2023/2022-2023-La-Liga-Stats
+- https://fbref.com/en/comps/12/2023-2024/2023-2024-La-Liga-Stats
+- https://fbref.com/en/comps/12/La-Liga-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 52.73 seconds

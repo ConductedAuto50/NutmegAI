@@ -1,0 +1,24 @@
+QUERY: Detail AC Milan's path to the 2007 Champions League final, including opponents and scores in knockout rounds.
+
+EXPECTED:
+A list of AC Milan's opponents and match scores for each knockout round (Round of 16, Quarter-final, Semi-final) in their 2006-07 Champions League campaign.
+
+RESPONSE:
+AC Milan's journey to the 2007 Champions League final began in the Third Qualifying Round, where they faced Red Star. They won the first leg at home 1-0 and the second leg away 2-1, advancing with a 3-1 aggregate score.
+
+After navigating the group stage, Milan entered the knockout rounds.
+
+In the Round of 16, they were drawn against Celtic. The first leg in Scotland finished 0-0. Milan secured their passage in the second leg at home with a 1-0 victory after extra time.
+
+The Quarter-finals saw them up against Bayern Munich. The first leg at home ended in a 2-2 draw. Milan then delivered a commanding performance away in the second leg, winning 2-0 to progress 4-2 on aggregate.
+
+The Semi-finals presented a tough tie against Manchester United. The first leg at Old Trafford was a narrow defeat for Milan, losing 2-3. However, they overturned the deficit in the second leg at home with a dominant 3-0 win, securing their place in the final with a 5-3 aggregate score.
+
+The final was played at a neutral venue against Liverpool. Milan emerged victorious with a 2-1 scoreline to lift the trophy.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/squads/dc56fe14/2006-2007/Milan-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 30.42 seconds

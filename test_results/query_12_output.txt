@@ -1,0 +1,19 @@
+QUERY: Who provided the most assists in Serie A during the 2018-19 season?
+
+EXPECTED:
+The player(s) with the highest number of assists in Serie A for the 2018-19 season.
+
+RESPONSE:
+In the 2018-19 Serie A season, two players were tied for the most assists:
+
+*   **Papu Gómez** of Atalanta
+*   **Dries Mertens** of Napoli
+
+Both players recorded 11 assists during the campaign.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/comps/11/2018-2019/2018-2019-Serie-A-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 31.06 seconds

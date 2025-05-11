@@ -1,0 +1,14 @@
+QUERY: Which player has the most assists in Champions League history?
+
+EXPECTED:
+The player with the highest accumulated number of assists in UEFA Champions League history.
+
+RESPONSE:
+Ronaldo, who played for Man Utd in the data provided, has the most assists in Champions League history with 42.
+
+LINKS USED FOR SCRAPING:
+- https://www.uefa.com/uefachampionsleague/history/rankings/players/assists/
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 24.80 seconds

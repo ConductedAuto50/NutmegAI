@@ -1,0 +1,16 @@
+QUERY: Show Kevin De Bruyne's goals, assists, and chances created in the Premier League 2022-23 season.
+
+EXPECTED:
+Kevin De Bruyne's total goals, assists, and chances created in the Premier League for the 2022-23 season.
+
+RESPONSE:
+In the 2022-23 Premier League season, Kevin De Bruyne scored 7 goals and provided 16 assists.
+
+He also recorded 176 Shot Creating Actions (the two offensive actions directly leading to a shot, such as passes, dribbles, and drawing fouls) and 31 Goal Creating Actions (the two offensive actions directly leading to a goal, such as passes, dribbles, and drawing fouls).
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/players/e46012d4/Kevin-De-Bruyne
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 55.41 seconds

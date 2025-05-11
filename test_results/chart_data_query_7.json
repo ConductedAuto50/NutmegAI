@@ -1,0 +1,50 @@
+{
+  "data": {
+    "datasets": [
+      {
+        "backgroundColor": "#00529F",
+        "data": [
+          2,
+          3,
+          4,
+          2
+        ],
+        "label": "Real Madrid"
+      },
+      {
+        "backgroundColor": "#C6001E",
+        "data": [
+          3,
+          2,
+          1,
+          1
+        ],
+        "label": "Barcelona"
+      }
+    ],
+    "labels": [
+      "2025-04-26",
+      "2024-04-21",
+      "2024-01-14",
+      "2023-10-28"
+    ]
+  },
+  "options": {
+    "plugins": {
+      "title": {
+        "display": true,
+        "text": "Goals Scored in Last 4 Real Madrid vs Barcelona Matches"
+      }
+    },
+    "responsive": true,
+    "scales": {
+      "y": {
+        "title": {
+          "display": true,
+          "text": "Goals Scored"
+        }
+      }
+    }
+  },
+  "type": "bar"
+}

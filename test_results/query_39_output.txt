@@ -1,0 +1,14 @@
+QUERY: Who is the all-time top scorer in the Africa Cup of Nations?
+
+EXPECTED:
+Name of the all-time top scorer in the history of the Africa Cup of Nations.
+
+RESPONSE:
+The all-time top goalscorer in the Africa Cup of Nations is Samuel Eto'o of Cameroon, who scored 18 goals in 29 matches across six tournaments (2000, 2002, 2004, 2006, 2008, and 2010).
+
+LINKS USED FOR SCRAPING:
+- https://en.wikipedia.org/wiki/Africa_Cup_of_Nations_records_and_statistics
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 30.64 seconds

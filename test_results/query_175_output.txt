@@ -1,0 +1,14 @@
+QUERY: Who was the top scorer for Chelsea in the 2004-05 Premier League season?
+
+EXPECTED:
+The name of Chelsea's top goal scorer in the Premier League for the 2004-05 season (Frank Lampard).
+
+RESPONSE:
+Frank Lampard was Chelsea's top scorer in the 2004-05 Premier League season, scoring 13 goals.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/squads/cff3d9bb/2004-2005/Chelsea-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 27.72 seconds

@@ -1,0 +1,14 @@
+QUERY: Who was the youngest player to debut in the Premier League?
+
+EXPECTED:
+Name and age (at debut) of the youngest player to make their debut in the Premier League.
+
+RESPONSE:
+Ethan Nwaneri holds the record for the youngest player to debut in the Premier League. He made his first appearance for Arsenal at the age of 15 years and 181 days. This happened in September 2022 during Arsenal's 3-0 victory against Brentford.
+
+LINKS USED FOR SCRAPING:
+- https://theanalyst.com/2024/08/youngest-premier-league-players
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 32.52 seconds

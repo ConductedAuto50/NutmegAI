@@ -1,0 +1,28 @@
+QUERY: Which club has the most Scottish Premiership titles?
+
+EXPECTED:
+The club with the most Scottish top-flight league titles (including Scottish Premiership, SPL, Division One, etc.).
+
+RESPONSE:
+Since the Scottish Premiership began in 2013, Celtic Football Club has won the most titles. They have won the league title in the following seasons:
+
+*   2013–14
+*   2014–15
+*   2015–16
+*   2016–17
+*   2017–18
+*   2018–19
+*   2019–20
+*   2021–22
+*   2022–23
+*   2023–24
+*   2024–25
+
+This gives them a total of 11 Scottish Premiership titles. Rangers won the league in the 2020–21 season during this period.
+
+LINKS USED FOR SCRAPING:
+- https://en.wikipedia.org/wiki/List_of_Scottish_football_champions
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 27.39 seconds

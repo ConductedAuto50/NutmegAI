@@ -1,0 +1,14 @@
+QUERY: Who was the Man of the Match in the 2022 World Cup Final according to ESPN?
+
+EXPECTED:
+The player named Man of the Match for the Argentina vs France World Cup 2022 final, based on ESPN's reporting.
+
+RESPONSE:
+Based on the information provided, the page does not state who the Man of the Match was for the 2022 World Cup Final.
+
+LINKS USED FOR SCRAPING:
+- https://www.espn.com/soccer/match/_/gameId/633850/france-argentina
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 32.07 seconds

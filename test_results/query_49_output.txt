@@ -1,0 +1,14 @@
+QUERY: Which team had the best away record in the Premier League 2022-23?
+
+EXPECTED:
+The team that accumulated the most points from away matches in the Premier League 2022-23 season.
+
+RESPONSE:
+I am unable to provide the team with the best away record in the Premier League for the 2022-23 season. The necessary information is not available.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/comps/9/2022-2023/2022-2023-Premier-League-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 24.94 seconds

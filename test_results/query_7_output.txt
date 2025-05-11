@@ -1,0 +1,21 @@
+QUERY: Create a graphical comparison of Real Madrid vs Barcelona match results in El Clasico over the last 4 matches
+
+EXPECTED:
+A bar graph comparing scores (e.g., goals for each team) in the last 4 El Clasico matches.
+
+RESPONSE:
+Here is a comparison of the goal scoring results for Real Madrid and Barcelona in their last four meetings. The matches span across different competitions including La Liga, Copa del Rey, and Supercopa de España. This comparison shows how many goals each team scored in the most recent instances of El Clásico.
+
+[Chart data saved to test_results/chart_data_query_7.json]
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/squads/53a2f082/Real-Madrid-Stats
+- https://fbref.com/en/squads/53a2f082/2023-2024/Real-Madrid-Stats
+- https://fbref.com/en/squads/53a2f082/2022-2023/Real-Madrid-Stats
+- https://fbref.com/en/squads/206d90db/2024-2025/all_comps/Barcelona-Stats-All-Competitions
+- https://fbref.com/en/squads/206d90db/2023-2024/c12/Barcelona-Stats-La-Liga
+- https://fbref.com/en/squads/206d90db/2022-2023/c12/Barcelona-Stats-La-Liga
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 95.43 seconds

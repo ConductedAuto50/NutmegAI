@@ -1,0 +1,14 @@
+QUERY: Which player has the most yellow cards in Premier League history?
+
+EXPECTED:
+The player with the highest accumulated number of yellow cards in the history of the Premier League.
+
+RESPONSE:
+I cannot provide the specific player with the most yellow cards in Premier League history based on the current statistics available. The current list focuses on the top yellow card recipients in the ongoing period.
+
+LINKS USED FOR SCRAPING:
+- https://www.premierleague.com/stats/top/players/yellow_card
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 25.73 seconds

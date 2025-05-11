@@ -1,0 +1,17 @@
+QUERY: Which player has the most assists in a single Premier League season?
+
+EXPECTED:
+The player who holds the record for the most assists in a single Premier League season, and the number of assists.
+
+RESPONSE:
+The record for the most assists in a single Premier League season is shared by two players, both with 20 assists:
+
+*   **Kevin De Bruyne** in the 2019-20 season for Manchester City.
+*   **Thierry Henry** in the 2002-03 season for Arsenal.
+
+LINKS USED FOR SCRAPING:
+- https://theanalyst.com/2025/04/most-assists-in-a-premier-league-season
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 25.39 seconds

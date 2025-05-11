@@ -5,7 +5,7 @@ import dotenv
 import datetime as dt
 import os
 
-dotenv.load_dotenv()
+dotenv.load_dotenv(override=True)
 class LLMCalls:
     def __init__(self):
         self.client = genai.Client(

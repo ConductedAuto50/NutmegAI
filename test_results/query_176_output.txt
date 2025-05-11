@@ -1,0 +1,23 @@
+QUERY: Provide a summary of the latest El Clasico match including score, scorers, and key events.
+
+EXPECTED:
+A summary from ESPN of the most recent Real Madrid vs Barcelona match, including final score, goal scorers, and notable incidents.
+
+RESPONSE:
+In the latest El Clasico, Barcelona secured a dramatic 3-2 victory over fierce rivals Real Madrid in the Copa del Rey final held on April 27, 2025, at Seville's La Cartuja stadium.
+
+The match was an enthralling thriller that went into extra time. Pedri opened the scoring for Barcelona in the 28th minute with a brilliant curling strike. Real Madrid, after bringing Kylian Mbappé off the bench, equalised through the French forward from a free kick in the 70th minute. Aurélien Tchouaméni then gave Real Madrid the lead with a header in the 77th minute. However, Ferran Torres pulled Barcelona level again in the 84th minute, sending the game into extra time.
+
+The decisive moment came in the 116th minute of extra time when Jules Koundé scored the winning goal for Barcelona with a strike from 25 yards.
+
+Key events in the ill-tempered encounter included a Barcelona penalty overturned by VAR in extra time, and post-match red cards shown to Real Madrid's Antonio Rüdiger and Lucas Vázquez for dissent from the bench, as well as to Jude Bellingham for unsportsmanlike conduct after the final whistle. Ferran Torres was named player of the match. The game was also preceded by pre-match tension due to Real Madrid boycotting activities over refereeing protests.
+
+This victory marked Barcelona's record-extending 32nd Spanish Cup title and their third win against Real Madrid this season.
+
+LINKS USED FOR SCRAPING:
+- https://www.eurosport.com/football/liga/2014-2015/real-madrid-come-from-behind-to-beat-barcelona-in-clasico-classic_sto4452199/story.shtml
+
+SUMMARY LINKS USED FOR SCRAPING:
+- https://www.espn.in/football/report/_/gameId/735156
+
+TIME TAKEN: 40.75 seconds

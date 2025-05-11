@@ -1,0 +1,14 @@
+QUERY: Who was the oldest player to win the Champions League?
+
+EXPECTED:
+Name and age (at the time of winning) of the oldest player to have won the UEFA Champions League.
+
+RESPONSE:
+The oldest player to win the UEFA Champions League was Paolo Maldini, who was 38 years and 331 days old when AC Milan won the final against Liverpool on May 23, 2007.
+
+LINKS USED FOR SCRAPING:
+- https://www.uefa.com/uefachampionsleague/news/025f-0ffe52e4d3c1-efe9ce36a2ce-1000--oldest-champions-league-players-scorers-finalists-and-wi/
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 23.49 seconds

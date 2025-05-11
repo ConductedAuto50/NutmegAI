@@ -1,0 +1,16 @@
+QUERY: Show a graph of the number of assists by Kevin De Bruyne per season at Manchester City.
+
+EXPECTED:
+A bar or line graph showing Kevin De Bruyne's total assists for Manchester City in all competitions, season by season.
+
+RESPONSE:
+Here is a graph showing the number of assists recorded by Kevin De Bruyne for Manchester City in all competitions across each season he has played for the club. His highest assist tally in a single season for City was 28 in the 2022-2023 campaign.
+
+[Chart data saved to test_results/chart_data_query_102.json]
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/players/e46012d4/Kevin-De-Bruyne
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 61.70 seconds

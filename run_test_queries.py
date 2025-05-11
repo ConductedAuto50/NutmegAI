@@ -43,13 +43,19 @@ def setup_directories():
             print(f"Error deleting graph image {graph_file}: {e}")
 
 def parse_queries(file_path):
-    """Parse the test queries file and extract queries"""
+    """Parse the test queries file and extract queries with their expected values"""
     with open(file_path, "r") as f:
         content = f.read()
-    
-    # Extract query blocks using regex
-    pattern = r'QUERY\s+(\d+):\s+"([^"]+)"'
-    return re.findall(pattern, content)
+
+    # Extract query blocks using regex (query number, query text, expected)
+    pattern = r'QUERY\s+(\d+):\s+"([^"]+)"([\s\S]*?)(?=\nQUERY|\Z)'
+    matches = re.findall(pattern, content)
+    queries = []
+    for num, text, block in matches:
+        expected_match = re.search(r'EXPECTED:\s*(.*)', block)
+        expected = expected_match.group(1).strip() if expected_match else ''
+        queries.append((num, text, expected))
+    return queries
 
 def run_query(query):
     """Send query to the API and return response"""
@@ -85,17 +91,26 @@ def save_graph_if_exists():
         return destination
     return None
 
+def reset_server_state():
+    """Send a special command to the server to reset its global state."""
+    data = {"message": "reset_state"}
+    try:
+        requests.post(BASE_URL, json=data)
+    except Exception as e:
+        print(f"Warning: Could not reset server state: {e}")
+
 def run_all_queries():
     """Run all test queries and compile results"""
-
     
     # Parse queries from file
     queries = parse_queries(QUERY_FILE)
     
     results = []
-    for query_num, query_text in queries:
+    for query_num, query_text, expected in queries:
         print(f"\nRunning Query {query_num}: {query_text}")
         setup_directories()
+        # Reset server state before each query
+        reset_server_state()
         # Run query
         start_time = time.time()
         response = run_query(query_text)
@@ -104,9 +119,12 @@ def run_all_queries():
         # Process response
         if "error" in response:
             output = f"ERROR: {response['error']}"
+            links = []
+            summary_links = []
         else:
             output = response.get("response", "No response")
-            
+            links = response.get("links", [])
+            summary_links = response.get("summary_links", [])
             # Check if there's chart data
             if "chart_data" in response:
                 # Save chart data as JSON
@@ -129,20 +147,30 @@ def run_all_queries():
         print(f"Response: {display_output}")
         print(f"Time taken: {end_time - start_time:.2f} seconds")
         
-        # Save full output to file
+        # Save full output to file, including links and summary_links and expected
         query_output_file = os.path.join(OUTPUT_DIR, f"query_{query_num}_output.txt")
         with open(query_output_file, "w") as f:
             f.write(f"QUERY: {query_text}\n\n")
+            f.write(f"EXPECTED:\n{expected}\n\n")
             f.write(f"RESPONSE:\n{output}\n\n")
-            f.write(f"TIME TAKEN: {end_time - start_time:.2f} seconds")
+            f.write("LINKS USED FOR SCRAPING:\n")
+            for l in links:
+                f.write(f"- {l}\n")
+            f.write("\nSUMMARY LINKS USED FOR SCRAPING:\n")
+            for l in summary_links:
+                f.write(f"- {l}\n")
+            f.write(f"\nTIME TAKEN: {end_time - start_time:.2f} seconds")
         
         # Log result
         results.append({
             "query_num": query_num,
             "query": query_text,
+            "expected": expected,
             "output_file": query_output_file,
             "time_taken": end_time - start_time,
-            "chart_generated": "chart_data" in response or graph_file is not None
+            "chart_generated": "chart_data" in response or graph_file is not None,
+            "num_links": len(links),
+            "num_summary_links": len(summary_links)
         })
         
         # Wait to avoid overloading the server
@@ -156,9 +184,12 @@ def run_all_queries():
         for result in results:
             f.write(f"## Query {result['query_num']}\n")
             f.write(f"- Query: \"{result['query']}\"\n")
+            f.write(f"- Expected: {result['expected']}\n")
             f.write(f"- Time taken: {result['time_taken']:.2f} seconds\n")
             f.write(f"- Chart generated: {'Yes' if result['chart_generated'] else 'No'}\n")
-            f.write(f"- Output file: {result['output_file']}\n\n")
+            f.write(f"- Output file: {result['output_file']}\n")
+            f.write(f"- Number of links: {result['num_links']}\n")
+            f.write(f"- Number of summary links: {result['num_summary_links']}\n\n")
     
     print(f"\nAll queries completed. Results saved to {OUTPUT_DIR}/{RESULTS_FILE}")
 

@@ -1,0 +1,14 @@
+QUERY: Which team scored the most goals in the Bundesliga 2019-20 season?
+
+EXPECTED:
+The team with the highest total goals scored in the Bundesliga for the 2019-20 season.
+
+RESPONSE:
+In the 2019-20 Bundesliga season, Bayern Munich scored the most goals with 97.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/comps/20/2019-2020/2019-2020-Bundesliga-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 25.60 seconds

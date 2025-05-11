@@ -1,0 +1,14 @@
+QUERY: Who holds the record for most appearances for AC Milan?
+
+EXPECTED:
+The name of the player with the most official appearances for AC Milan. (Paolo Maldini)
+
+RESPONSE:
+The player who holds the record for most appearances for AC Milan is Paolo Maldini. He made a total of 902 official appearances for the club between 1984 and 2009.
+
+LINKS USED FOR SCRAPING:
+- https://en.wikipedia.org/wiki/List_of_AC_Milan_records_and_statistics
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 23.56 seconds

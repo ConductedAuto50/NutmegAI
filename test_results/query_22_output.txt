@@ -1,0 +1,14 @@
+QUERY: Show the average age of the France national team squad in the 2018 World Cup.
+
+EXPECTED:
+The average age of the players in France's national team squad for the 2018 FIFA World Cup.
+
+RESPONSE:
+I am sorry, but the document provided contains statistics for the 2018-2019 Paris Saint-Germain squad in Ligue 1. It does not have information about the France national team squad from the 2018 World Cup, so I cannot provide the average age from this source.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/squads/e2d8892c/2018-2019/Paris-Saint-Germain-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 36.76 seconds

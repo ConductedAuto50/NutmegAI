@@ -1,0 +1,14 @@
+QUERY: What was the score of Manchester City's last Premier League match?
+
+EXPECTED:
+The scoreline and opponent of Manchester City's most recently played Premier League match.
+
+RESPONSE:
+Manchester City's last Premier League match was on Saturday, May 10, 2025, away against Southampton. The score was a 0–0 draw.
+
+LINKS USED FOR SCRAPING:
+- https://fbref.com/en/squads/b8fd03ef/Manchester-City-Stats
+
+SUMMARY LINKS USED FOR SCRAPING:
+
+TIME TAKEN: 63.75 seconds
