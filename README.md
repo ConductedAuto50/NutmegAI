@@ -82,7 +82,7 @@ Nutmeg AI/
    ```
    GSEARCH_API_KEY=your_google_search_api_key
    CSE_ID=your_google_custom_search_engine_id
-   LLM_API_KEY=your_llm_api_key
+   GOOGLE_API_KEY=your_llm_api_key
    ```
 
 2. Make sure you have the required folders:
