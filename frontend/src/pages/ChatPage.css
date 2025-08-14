@@ -327,3 +327,13 @@
     max-width: 85%;
   }
 } 
+
+.ai-message .message-content ::selection {
+  background: #0a2528;
+  color: #00FFFF;
+} 
+
+.user-message .message-content ::selection {
+  background: #0a2528;
+  color: #00FFFF;
+} 

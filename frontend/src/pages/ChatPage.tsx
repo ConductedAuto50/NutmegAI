@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PureMultimodalInput } from '../components/ui/multimodal-ai-chat-input';
 import { SessionNavBar } from '../components/Sidebar';
 import { cn } from '../lib/utils';
@@ -40,6 +40,7 @@ const ChatPage: React.FC = () => {
   const [selectedVisibilityType] = useState<string>('public');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -101,7 +102,11 @@ const ChatPage: React.FC = () => {
         role: 'assistant',
         chartData: chartData
       };
+      
+      // Add the AI response directly to messages
       setMessages(prev => [...prev, aiResponse]);
+      setIsGenerating(false);
+      setCanSend(true);
 
     } catch (error) {
       console.error("Error fetching AI response:", error);
@@ -111,11 +116,12 @@ const ChatPage: React.FC = () => {
         role: 'assistant',
       };
       setMessages(prev => [...prev, errorResponse]);
-    } finally {
       setIsGenerating(false);
       setCanSend(true);
     }
   };
+
+  // Animation complete handler removed - responses now added directly
 
   const handleStopGenerating = () => {
     setIsGenerating(false);
@@ -134,7 +140,7 @@ const ChatPage: React.FC = () => {
         isSidebarCollapsed ? "sidebar-closed" : "sidebar-open"
       )}>
         <div className="chat-container">
-          <div className="messages-container">
+          <div className="messages-container" ref={messagesContainerRef}>
             {messages.length === 0 ? (
               <div className="welcome-message">
                 <h2>Welcome to NutmegAI</h2>

@@ -16,6 +16,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Loader2 as LoaderIcon, X as XIcon } from 'lucide-react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
+import ReactMarkdown from 'react-markdown';
 
 const clsx = (...args: any[]) => args.filter(Boolean).join(' ');
 
@@ -159,7 +160,7 @@ const ArrowUpIcon = ({ size = 16 }: { size?: number }) => {
         strokeLinejoin="round"
         viewBox="0 0 16 16"
         width={size}
-        style={{ color: 'currentcolor' }}
+        style={{ color: '#00FFFF' }}
       >
         <path
           fillRule="evenodd"
@@ -337,6 +338,317 @@ function PureStopButton({ onStop }: { onStop: () => void }) {
 
 const StopButton = memo(PureStopButton, (prev, next) => prev.onStop === next.onStop);
 
+// Enhanced Particle component for message formation
+const Particle = ({ id, initialX, initialY, targetX, targetY, isAnimating, onAnimationComplete, mode = 'return' }: {
+  id: number;
+  initialX: number;
+  initialY: number;
+  targetX: number;
+  targetY: number;
+  isAnimating: boolean;
+  onAnimationComplete: (id: number) => void;
+  mode?: 'return' | 'form-message';
+}) => {
+  // Perfect timing intervals for mathematical satisfaction
+  const ringIndex = id % 3;
+  const delay = (id * 0.025) + (ringIndex * 0.1); // Staggered by ring
+  const animationDuration = mode === 'form-message' ? 1.8 : 2.4; // Faster for message formation
+
+  // Premium particle size based on ring (inner particles smaller for depth)
+  const particleSize = ringIndex === 0 ? 8 : ringIndex === 1 ? 6 : 4;
+  const glowIntensity = ringIndex === 0 ? 1 : ringIndex === 1 ? 0.8 : 0.6;
+
+  // Different animation paths based on mode
+  const getAnimationProps = () => {
+    if (mode === 'form-message') {
+      return {
+        x: [
+          initialX - particleSize/2,
+          targetX - particleSize/2
+        ],
+        y: [
+          initialY - particleSize/2,
+          targetY - particleSize/2
+        ],
+        scale: [0, 1.2, 1.8, 0.8], // Burst at target
+        opacity: [0, 1, 1, 0.9],
+        rotate: [0, 180],
+        filter: [
+          "blur(2px)",
+          "blur(0px)",
+          "blur(0px)",
+          "blur(1px)"
+        ],
+      };
+    } else {
+      // Return mode (existing animation)
+      return {
+        x: [
+          initialX - particleSize/2, 
+          targetX - particleSize/2, 
+          initialX - particleSize/2
+        ],
+        y: [
+          initialY - particleSize/2, 
+          targetY - particleSize/2, 
+          initialY - particleSize/2
+        ],
+        scale: [0, 1.4, 1, 1.6, 0],
+        opacity: [0, 1, 0.95, 1, 0],
+        rotate: [0, 360],
+        filter: [
+          "blur(2px)", 
+          "blur(0px)", 
+          "blur(0px)", 
+          "blur(1px)", 
+          "blur(3px)"
+        ],
+      };
+    }
+  };
+
+  return (
+    <motion.div
+      className="absolute rounded-full pointer-events-none"
+      style={{
+        x: initialX - particleSize/2,
+        y: initialY - particleSize/2,
+        width: particleSize,
+        height: particleSize,
+        background: `linear-gradient(135deg, 
+          rgba(6, 182, 212, ${glowIntensity}) 0%, 
+          rgba(8, 145, 178, ${glowIntensity * 0.9}) 50%, 
+          rgba(14, 116, 144, ${glowIntensity * 0.8}) 100%)`,
+        boxShadow: `
+          0 0 ${12 * glowIntensity}px rgba(6, 182, 212, ${0.9 * glowIntensity}), 
+          0 0 ${24 * glowIntensity}px rgba(6, 182, 212, ${0.5 * glowIntensity}),
+          inset 0 0 ${4 * glowIntensity}px rgba(255, 255, 255, ${0.3 * glowIntensity})`,
+      }}
+      initial={{
+        scale: 0,
+        opacity: 0,
+        filter: "blur(2px)",
+      }}
+      animate={isAnimating ? getAnimationProps() : {}}
+      transition={{
+        duration: animationDuration,
+        ease: [0.25, 0.1, 0.25, 1], // Premium easing curve
+        times: mode === 'form-message' ? [0, 0.3, 0.7, 1] : [0, 0.2, 0.5, 0.8, 1],
+        delay,
+      }}
+      onAnimationComplete={() => onAnimationComplete(id)}
+    >
+      {/* Premium inner luminescence */}
+      <motion.div
+        className="absolute inset-0 rounded-full"
+        style={{
+          background: `radial-gradient(circle, 
+            rgba(255, 255, 255, ${0.6 * glowIntensity}) 0%, 
+            rgba(6, 182, 212, ${0.4 * glowIntensity}) 40%,
+            transparent 70%)`,
+        }}
+        animate={isAnimating ? {
+          scale: [0.8, 1.5, 0.8],
+          opacity: [0.8, 0.4, 0.8],
+        } : {}}
+        transition={{
+          duration: animationDuration * 0.6,
+          ease: "easeInOut",
+          delay: delay + 0.1,
+          repeat: mode === 'form-message' ? 0 : 1,
+          repeatType: "reverse"
+        }}
+      />
+      
+      {/* Elegant trail effect */}
+      <motion.div
+        className="absolute inset-0 rounded-full"
+        style={{
+          background: `linear-gradient(45deg, 
+            transparent 0%, 
+            rgba(6, 182, 212, ${0.3 * glowIntensity}) 50%, 
+            transparent 100%)`,
+        }}
+        animate={isAnimating ? {
+          rotate: mode === 'form-message' ? [0, 360] : [0, 720],
+          scale: [1, 1.2, 1],
+        } : {}}
+        transition={{
+          duration: animationDuration,
+          ease: "linear",
+          delay,
+        }}
+      />
+    </motion.div>
+  );
+};
+
+// AI Message Formation Box Component
+const FormingAIMessageBox = ({ 
+  isVisible, 
+  onFormationComplete,
+  targetPosition,
+  content
+}: {
+  isVisible: boolean;
+  onFormationComplete: () => void;
+  targetPosition?: { x: number; y: number; width: number; height: number };
+  content?: string;
+}) => {
+  const [formationComplete, setFormationComplete] = useState(false);
+  const [colorTransitionComplete, setColorTransitionComplete] = useState(false);
+
+  useEffect(() => {
+    if (isVisible && !formationComplete) {
+      // Allow time for particles to converge (1.8s), then start formation
+      setTimeout(() => {
+        setFormationComplete(true);
+        setTimeout(() => {
+          setColorTransitionComplete(true);
+          onFormationComplete();
+          setTimeout(onFormationComplete, 200);
+        }, 800); // Color transition duration
+      }, 1800);
+    }
+  }, [isVisible, formationComplete, onFormationComplete]);
+
+  if (!isVisible) return null;
+
+  // Use dynamic positioning if provided, otherwise fallback to default
+  const boxPosition = targetPosition ? {
+    left: targetPosition.x,
+    top: targetPosition.y,
+    transform: 'none',
+    maxWidth: targetPosition.width,
+  } : {
+    left: '2rem',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    maxWidth: '70%',
+  };
+
+  return (
+    <motion.div
+      className="fixed pointer-events-none z-40"
+      style={boxPosition}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
+      <motion.div
+        className="relative"
+        initial={{
+          background: 'rgba(6, 182, 212, 0)',
+          borderRadius: '0.25rem',
+          padding: '0.5rem',
+          minHeight: '2rem',
+          minWidth: '4rem',
+        }}
+        animate={formationComplete ? {
+          background: colorTransitionComplete 
+            ? '#1f2121' // Final AI message color
+            : 'rgba(6, 182, 212, 0.8)', // Transition from cyan
+          borderRadius: '1.5rem',
+          borderBottomLeftRadius: '0.5rem',
+          padding: '1rem 1.5rem',
+          minHeight: '3.5rem',
+          minWidth: '12rem',
+        } : {
+          background: 'rgba(6, 182, 212, 0.3)',
+          borderRadius: '0.5rem',
+          padding: '0.75rem',
+          minHeight: '2.5rem',
+          minWidth: '8rem',
+        }}
+        transition={{
+          duration: 0.8,
+          ease: [0.25, 0.1, 0.25, 1]
+        }}
+        style={{
+          boxShadow: formationComplete 
+            ? (colorTransitionComplete 
+                ? '0 4px 12px rgba(0, 0, 0, 0.05)' 
+                : '0 4px 12px rgba(6, 182, 212, 0.2), 0 0 20px rgba(6, 182, 212, 0.1)')
+            : '0 0 15px rgba(6, 182, 212, 0.4)',
+        }}
+      >
+        {/* Particle merge overlay effect */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            borderRadius: 'inherit',
+            background: 'radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%)',
+          }}
+          initial={{ opacity: 1, scale: 0.8 }}
+          animate={formationComplete ? {
+            opacity: 0,
+            scale: 1.2,
+          } : {
+            opacity: 0.6,
+            scale: 1,
+          }}
+          transition={{
+            duration: 0.6,
+            ease: [0.25, 0.1, 0.25, 1]
+          }}
+        />
+
+        {/* Shimmer effect during formation */}
+        {formationComplete && !colorTransitionComplete && (
+          <motion.div
+            className="absolute inset-0"
+            style={{
+              borderRadius: 'inherit',
+              background: 'linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%)',
+            }}
+            animate={{
+              x: ['-100%', '100%'],
+            }}
+            transition={{
+              duration: 0.8,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+          />
+        )}
+
+        {/* Loading dots while waiting for AI response */}
+        {colorTransitionComplete && (
+          <motion.div
+            className="relative z-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+          >
+            {content ? (
+              <div className="prose prose-sm prose-invert max-w-none">
+                <ReactMarkdown>{content}</ReactMarkdown>
+              </div>
+            ) : (
+              // Fallback loading dots
+              <div className="flex items-center gap-1">
+                {[0, 1, 2].map((i) => (
+                  <motion.div
+                    key={i}
+                    className="w-2 h-2 bg-cyan-600 rounded-full"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.4, 1, 0.4],
+                    }}
+                    transition={{
+                      duration: 1.2,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                    }}
+                  />
+                ))}
+              </div>
+            )}
+          </motion.div>
+        )}
+      </motion.div>
+    </motion.div>
+  );
+};
+
 function PureSendButton({
   submitForm,
   input,
@@ -352,27 +664,100 @@ function PureSendButton({
   canSend: boolean;
   isGenerating: boolean;
 }) {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
   const isDisabled =
     uploadQueue.length > 0 ||
     !canSend ||
     isGenerating ||
     (input.trim().length === 0 && attachments.length === 0);
 
+  const handleClick = (event: React.MouseEvent) => {
+    event.preventDefault();
+    if (!isDisabled) {
+      submitForm();
+    }
+  };
+
   return (
     <Button
+      ref={buttonRef}
       data-testid="send-button"
-      // Uses default variant (bg-black text-white)
-      className="rounded-full p-1.5 h-fit"
-      onClick={(event) => {
-        event.preventDefault();
-        if (!isDisabled) {
-          submitForm();
-        }
-      }}
+      className={`rounded-full p-1.5 h-fit transition-all duration-700 overflow-hidden relative ${
+        isGenerating 
+          ? 'bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600' 
+          : 'bg-black hover:bg-gray-800'
+      }`}
+      onClick={handleClick}
       disabled={isDisabled}
       aria-label="Send message"
+      style={{
+        background: isGenerating 
+          ? 'linear-gradient(135deg, #06b6d4 0%, #0891b2 25%, #0e7490 50%, #155e75 75%, #164e63 100%)' 
+          : undefined,
+        boxShadow: isGenerating 
+          ? `
+            0 0 20px rgba(6, 182, 212, 0.4),
+            0 0 40px rgba(6, 182, 212, 0.3),
+            0 0 80px rgba(6, 182, 212, 0.2),
+            inset 0 2px 4px rgba(255, 255, 255, 0.2),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.2)
+          ` 
+          : undefined,
+        border: isGenerating
+          ? '1px solid rgba(255, 255, 255, 0.3)'
+          : undefined,
+      }}
     >
-      <ArrowUpIcon size={14} />
+      {/* Premium rotating background effect */}
+      {isGenerating && (
+        <motion.div
+          className="absolute inset-0 rounded-full"
+          style={{
+            background: 'conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent, rgba(6, 182, 212, 0.2), transparent)',
+          }}
+          animate={{
+            rotate: [0, 360],
+          }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+          }}
+        />
+      )}
+
+      <motion.div
+        className="relative z-10"
+        animate={isGenerating ? {
+          scale: [1, 1.1, 1],
+          opacity: [1, 0.8, 1],
+        } : {}}
+        transition={{
+          duration: 1.5,
+          ease: [0.25, 0.1, 0.25, 1],
+          repeat: isGenerating ? Infinity : 0,
+        }}
+      >
+        <ArrowUpIcon size={14} />
+      </motion.div>
+      
+      {/* Glowing ring effect while generating */}
+      {isGenerating && (
+        <motion.div
+          className="absolute inset-0 rounded-full border border-cyan-300/60"
+          initial={{ scale: 1, opacity: 0.8 }}
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.8, 0.3, 0.8],
+          }}
+          transition={{
+            duration: 2,
+            ease: [0.25, 0.1, 0.25, 1],
+            repeat: Infinity,
+          }}
+        />
+      )}
     </Button>
   );
 }
@@ -418,7 +803,6 @@ function PureMultimodalInput({
   const [input, setInput] = useState('');
   const [isFocused, setIsFocused] = useState(false);
   const [uploadQueue, setUploadQueue] = useState<string[]>([]);
-
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -431,6 +815,8 @@ function PureMultimodalInput({
   
   const showSuggestedActions =
     messages.length === 0 && !hasContent && isFocused;
+  
+  // Animation functions removed - will be implemented later when needed
 
   const handleSelectAction = useCallback((action: string) => {
     setInput(action);
@@ -508,7 +894,7 @@ function PureMultimodalInput({
   };
 
   const submitForm = () => {
-    if ((!input.trim() && attachments.length === 0) || !canSend) return;
+    if ((!input.trim() && attachments.length === 0) || !canSend || isGenerating) return;
 
     onSendMessage({
       input: input.trim(),
@@ -618,19 +1004,18 @@ function PureMultimodalInput({
           disabled={isGenerating}
         />
         <div className="absolute bottom-2 right-2 flex items-center gap-2">
-          <PureAttachmentsButton
-            fileInputRef={fileInputRef}
-            disabled={isGenerating || uploadQueue.length > 0}
-          />
-          <PureSendButton
-            submitForm={submitForm}
-            input={input}
-            uploadQueue={uploadQueue}
-            attachments={attachments}
-            canSend={canSend}
-            isGenerating={isGenerating}
-          />
-          <PureStopButton onStop={onStopGenerating} />
+          {isGenerating ? (
+            <StopButton onStop={onStopGenerating} />
+          ) : (
+            <SendButton
+              submitForm={submitForm}
+              input={input}
+              uploadQueue={uploadQueue}
+              attachments={attachments}
+              canSend={canSend}
+              isGenerating={isGenerating}
+            />
+          )}
         </div>
       </div>
     </div>

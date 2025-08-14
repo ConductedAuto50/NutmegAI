@@ -6,6 +6,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Play, MessageCircle, Zap, Target, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { GradientText } from './ui/gradient-text';
 
 const Spline = lazy(() => import('@splinetool/react-spline'));
 
@@ -291,19 +292,13 @@ function HeroContent() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <motion.span
-            className="bg-clip-text text-transparent"
-            style={{ 
-              background: 'linear-gradient(135deg, #20B8CD 0%, #60A5FA 50%, #20B8CD 100%)',
-              WebkitBackgroundClip: 'text'
-            }}
-            animate={isHovered ? {
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            } : {}}
-            transition={{ duration: 2, repeat: Infinity }}
+          <GradientText
+            colors={["#20B8CD", "#60A5FA", "#20B8CD"]}
+            animationSpeed={3}
+            className="inline-block"
           >
             NutmegAI
-          </motion.span>
+          </GradientText>
           <br />
           <span style={{ color: '#FCFAF6' }}>Your Ultimate</span>
           <br />
@@ -427,7 +422,13 @@ function Navbar() {
                style={{ background: 'linear-gradient(135deg, #20B8CD 0%, #1A9CB8 100%)' }}>
             ⚽
           </div>
-          <span className="font-bold text-xl" style={{ color: '#FCFAF6' }}>NutmegAI</span>
+          <GradientText
+            colors={["#20B8CD", "#60A5FA", "#20B8CD"]}
+            animationSpeed={4}
+            className="font-bold text-xl inline-block"
+          >
+            NutmegAI
+          </GradientText>
         </motion.div>
 
         <div className="hidden md:flex items-center space-x-8">

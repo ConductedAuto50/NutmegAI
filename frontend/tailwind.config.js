@@ -80,6 +80,11 @@ module.exports = {
             transform: "translateZ(0) rotate(360deg)",
           },
         },
+        gradient: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -87,6 +92,7 @@ module.exports = {
         "shimmer-slide":
           "shimmer-slide var(--speed) ease-in-out infinite alternate",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
+        gradient: "gradient var(--animation-duration, 8s) linear infinite",
       },
     },
   },

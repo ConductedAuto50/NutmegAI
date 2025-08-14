@@ -62,7 +62,7 @@ The current conversation history till now has also been provided in conversation
 Give the reasoning first, and end your answer with the dictionary.
 The query you need to respond to is: {query}
 """
-        model = "gemini-2.5-flash-preview-04-17"
+        model = "gemini-2.5-flash"
         contents = [
             types.Content(
                 role="user",
@@ -105,7 +105,7 @@ Give detailed answers whenever possible/required.
 The user query is: {query}
 """
         output_dir = "outputs"
-        model = "gemini-2.5-flash-preview-04-17"
+        model = "gemini-2.5-flash"
         files = []
         for filename in os.listdir(output_dir):
             file_path = os.path.join(output_dir, filename)
@@ -183,7 +183,7 @@ Output_format:
 Note: Strictly follow the output format. You are an expert you must not fail at any cost in maintaining the output format. Do not miss the ***** both before and after the output otherwise it will crash the whole program. Do not use backticks or any other formatting. Only return as shown in the example for the data. Ensure the JSON is properly formatted with no syntax errors.
 """
         output_dir = "outputs"
-        model = "gemini-2.5-flash-preview-04-17"
+        model = "gemini-2.5-flash"
         files = []
         for filename in os.listdir(output_dir):
             file_path = os.path.join(output_dir, filename)
@@ -237,6 +237,14 @@ Note: Strictly follow the output format. You are an expert you must not fail at 
     Then, enclosed in ***** markers, return the chart data in a JSON format that can be used with Chart.js or Plotly.js.
     Structure the data appropriately for the frontend visualization library with proper labels, datasets, and options.
     
+    CHART STYLING REQUIREMENTS:
+    - Use a cyan color scheme throughout the chart (primary colors: #06b6d4, #0891b2, #0e7490, #155e75, #164e63)
+    - For bar charts, use moderate bar widths (set "barThickness" to 20-25 pixels in options)
+    - Use cyan gradients and variations for different datasets
+    - Background colors should be in the cyan family
+    - Border colors should complement the cyan theme
+    - Text colors should be dark for readability against light backgrounds
+    
     IMPORTANT: You must include a text explanation BEFORE the chart data. The chart cannot stand alone.
     Your output must follow this format exactly:
 
@@ -251,28 +259,54 @@ Note: Strictly follow the output format. You are an expert you must not fail at 
           {{
               "label": "Real Madrid",
               "data": [2, 1, 4, 4],
-              "backgroundColor": "#00529F"
+              "backgroundColor": "#06b6d4",
+              "borderColor": "#0891b2",
+              "borderWidth": 1
           }},
           {{
               "label": "Barcelona",
               "data": [1, 0, 1, 0],
-              "backgroundColor": "#C6001E"
+              "backgroundColor": "#0e7490",
+              "borderColor": "#155e75",
+              "borderWidth": 1
           }}
           ]
       }},
       "options": {{
           "responsive": true,
+          "barThickness": 22,
           "plugins": {{
           "title": {{
               "display": true,
-              "text": "Goals Scored in Last 4 Real Madrid vs Barcelona Matches"
+              "text": "Goals Scored in Last 4 Real Madrid vs Barcelona Matches",
+              "color": "#164e63"
+          }},
+          "legend": {{
+              "labels": {{
+                  "color": "#164e63"
+              }}
           }}
           }},
           "scales": {{
           "y": {{
               "title": {{
               "display": true,
-              "text": "Goals Scored"
+              "text": "Goals Scored",
+              "color": "#164e63"
+              }},
+              "ticks": {{
+                  "color": "#164e63"
+              }},
+              "grid": {{
+                  "color": "#e0f2fe"
+              }}
+          }},
+          "x": {{
+              "ticks": {{
+                  "color": "#164e63"
+              }},
+              "grid": {{
+                  "color": "#e0f2fe"
               }}
           }}
           }}
@@ -284,7 +318,7 @@ Note: Strictly follow the output format. You are an expert you must not fail at 
     Do not use any ```JSON or anything over here. Just return the JSON data as shown in the example. Follow the format strictly.
     """
         output_dir = "outputs"
-        model = "gemini-2.5-flash-preview-04-17"
+        model = "gemini-2.5-flash"
         files = []
         for filename in os.listdir(output_dir):
             file_path = os.path.join(output_dir, filename)

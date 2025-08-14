@@ -1183,3 +1183,14 @@ section:nth-child(even) {
         padding-right: 0;
     }
 }
+
+.message.bot ::selection {
+  background: var(--primary-color);
+  color: #00FFFF;
+}
+
+.message.user ::selection {
+  background: rgba(85, 85, 85, 0.15);
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
